@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EndpointHealth | IRIS Provider FHIR Communications</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Navigation Menu -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <img src="./images/endpoint-logo3.png" alt="EndpointHealth Logo" class="logo-img" />
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="#iris">
+          <img src="./images/pcom6.png" alt="IRIS Icon" class="nav-icon" />
+          IRIS
+        </a>
+      </li>
+      <li><a href="#about">Company</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+ <!-- Hero Section -->
+<header class="hero">
+  <div class="hero-content">
+    <div class="iris-header">
+      <img src="./images/pcom6.png" alt="IRIS Logo" class="iris-logo" />
+      <h1>IRIS – Provider Communications</h1>
+    </div>
+    <p>🔒 Secure, HIPAA/PIPEDA compliant, context-aware provider messaging for modern clinical workflows</p>
+
+    <!-- ✅ Featured Description Inserted Here -->
+    <p style="text-align: center; font-weight: normal; margin-top: 1.5em;">
+      🌟 Proudly featured in the <a href="https://gallery.smarthealthit.org/apps/search?q=iris" target="_blank">Harvard SMART Health IT Gallery</a>, showcasing our commitment to interoperable, secure, and clinically integrated SMART on FHIR innovation.
+    </p>
+
+    <a href="https://launch.smarthealthit.org/?launch_url=https%3A%2F%2Fuat.endpointhealth.ca&fhir_version=r4&patient=smart-1288992&practitioner=smart-Practitioner-1032702&encounter=smart-Encounter-1001"
+      target="_blank" class="cta-button">
+      Try it!
+    </a>
+  </div>
+</header>
+
+  <!-- IRIS Product Section -->
+  <section class="product" id="iris">
+    <div class="feature-block left">
+      <div class="feature-text">
+        <h3>&nbsp;&nbsp;&nbsp;
+          <img src="./images/smart-logo.png" alt="Overview Icon" class="overview-icon-inline" />
+          SMART EMR Integration
+        </h3>
+        <br></br>
+        <ul class="icon-list">
+          <li class="icon-mail">Streamline clinical communication with secure, context-aware messaging and FHIR-native
+            workflows.</li>
+          <li class="icon-gear">SMART-on-FHIR launch from the EHR with patient, encounter, and provider context
+            preloaded.</li>
+          <li class="icon-search">
+            Advanced search for patients, providers, encounters, and clinical documentation.
+
+          </li>
+        </ul>
+
+      </div>
+      <img src="./images/overview-1.png" alt="IRIS Icon" class="expandable-img" />
+    </div>
+
+    <div class="feature-block right">
+      <div class="feature-text">
+        <h3>🔍 Patient and Provider Registry Integration</h3>
+        <br></br>
+        <ul class="icon-list">
+          <li class="icon-registry">Integrate with existing client and provider registries to provide accurate
+            identification and validation of resources.</li>
+          <li class="icon-attach">Browse and attach encounter information associated with each patient to determine
+            suitability of recipients.</li>
+          <li class="icon-circle">Determine a patient's circle of care through the querying of CareTeam, Organization
+            and Communication resources.</li>
+          <li class="icon-careplan">Search CarePlans of each CareTeam associated with a patient.</li>
+        </ul>
+      </div>
+      <img src="./images/send-message-7.png" alt="Provider Search Screenshot" class="expandable-img" />
+    </div>
+
+    <div class="feature-block left">
+      <div class="feature-text">
+        <h3>🔍 Browse a Patient's Documents</h3>
+        <br></br>
+        <ul class="icon-list">
+          <li class="icon-docs">Find, preview, and attach a patient's Document References, Diagnostic Reports,
+            Observations and Media resources to enrich clinical communication.</li>
+          <li class="icon-search">
+            Search messages by multiple criteria, or define your own search index.
+          </li>
+          <img src="./images/search-messages-1.png" alt="IRIS Icon" class="expandable-img small-img" />
+
+
+        </ul>
+      </div>
+      <img src="./images/send-message-4.png" alt="Screenshot 2" class="expandable-img" />
+    </div>
+
+    <div class="feature-block right">
+      <div class="feature-text">
+        <h3>👁️ View Referenced Resources</h3>
+        <br></br>
+
+        <ul class="icon-list">
+          <li class="icon-docs">
+            View structured details of any FHIR resource such as Patients, Providers, Encounters, Organizations, or
+            CarePlans.
+          </li>
+          <div class="card-stack">
+            <img src="./images/send-message-6.png"" alt=" Card Layer 2" class="card-layer layer-2" />
+            <img src="./images/send-message-6.png"" alt=" Card Layer 1" class="card-layer layer-1" />
+            <img src="./images/send-message-6.png"" alt=" FHIR Resource Preview"
+              class="expandable-img card-layer top-layer" />
+          </div>
+        </ul>
+      </div>
+      <img src="./images/patient-card.png" alt="Screenshot 3" class="expandable-img" />
+    </div>
+  </section>
+
+  <section class="support-matrix">
+    <h3>📊 Compatibility Matrix</h3>
+    <table class="compatibility-table">
+      <thead>
+        <tr>
+          <th>EHR Platform</th>
+          <th>FHIR Version</th>
+          <th>SMART-on-FHIR Launch</th>
+          <th>IRIS Compatibility</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Epic</td>
+          <td>R4</td>
+          <td>✅ Supported</td>
+          <td>✅ Fully Compatible</td>
+        </tr>
+        <tr>
+          <td>Cerner (Oracle Health)</td>
+          <td>R4</td>
+          <td>✅ Supported</td>
+          <td>✅ Fully Compatible</td>
+        </tr>
+        <tr>
+          <td>Meditech Expanse</td>
+          <td>R4</td>
+          <td>✅ Supported</td>
+          <td>✅ Fully Compatible</td>
+        </tr>
+        <tr>
+          <td>Allscripts</td>
+          <td>R4</td>
+          <td>✅ Supported</td>
+          <td>✅ Fully Compatible</td>
+        </tr>
+        <tr>
+          <td>NextGen</td>
+          <td>R4</td>
+          <td>✅ Supported</td>
+          <td>✅ Fully Compatible</td>
+        </tr>
+        <tr>
+          <td>eClinicalWorks</td>
+          <td>R4</td>
+          <td>✅ Supported</td>
+          <td>✅ Fully Compatible</td>
+        </tr>
+        <tr>
+          <td>Oscar EMR (Canada)</td>
+          <td>R4</td>
+          <td>⚠️ Partial Support</td>
+          <td>🟡 Limited Compatibility</td>
+        </tr>
+        <tr>
+          <td>Telus Health (Canada)</td>
+          <td>R4</td>
+          <td>⚠️ Partial Support</td>
+          <td>🟡 Limited Compatibility</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Modal for full-size image -->
+  <div id="image-modal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modal-img" />
+  </div>
+
+  <!-- Company Info Section -->
+  <section class="about" id="about">
+    <h3>
+      <img src="./images/endpoint-logo3.png" alt="EndpointHealth Logo" class="company-logo-inline" />
+      About
+    </h3>
+    <p>
+      EndpointHealth is a healthcare technology consultancy based in Kelowna, Canada. We specialize in clinical
+      interoperability, scalable architecture, and real-world workflow automation. Our mission is to improve care
+      delivery through modern, timely solutions that enhance clinical workflows.
+    </p>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <h3>Interested?</h3>
+    <p><strong>Email:</strong> <a href="mailto:aaron@endpointhealth.ca">aaron@endpointhealth.ca</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 EndpointHealth. All rights reserved.</p>
+  </footer>
+
+  <!-- ✅ Modal Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const modal = document.getElementById("image-modal");
+      const modalImg = document.getElementById("modal-img");
+      const closeBtn = document.querySelector(".close");
+
+      document.querySelectorAll(".expandable-img").forEach(img => {
+        img.addEventListener("click", () => {
+          modal.style.display = "block";
+          modalImg.src = img.src;
+          modalImg.alt = img.alt;
+        });
+      });
+
+      closeBtn.onclick = () => {
+        modal.style.display = "none";
+      };
+
+      window.onclick = event => {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      };
+    });
+  </script>
+</body>
+
+</html>
