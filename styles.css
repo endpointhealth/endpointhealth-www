@@ -383,8 +383,9 @@ footer {
 
 .card-stack {
   position: relative;
-  width: 10px;
-  height: 10px; /* Adjust based on image height */
+  width: 240px;       /* set a sensible default stack width */
+  max-width: 100%;
+  height: auto;       /* allow images to determine height */
   margin-top: 12px;
 }
 
@@ -398,21 +399,23 @@ footer {
 
 /* Layer offsets */
 .layer-2 {
-  top: 60px;
-  left: 60px;
+  top: 20px;
+  left: 20px;
   z-index: 1;
-  opacity: 0.4;
+  opacity: 0.45;
 }
 
 .layer-1 {
-  top: 60px;
-  left: 60px;
+  top: 10px;
+  left: 10px;
   z-index: 2;
-  opacity: 0.6;
+  opacity: 0.7;
 }
 
 .top-layer {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 3;
 }
 
@@ -524,4 +527,47 @@ section.about {
   inset: 0;
   background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.45) 100%);
   pointer-events: none;
+}
+
+/* Extra-small screens: tighten spacing and allow header to stack neatly */
+@media (max-width: 420px) {
+  .navbar {
+    padding: 8px 10px;
+  }
+
+  .nav-links {
+    gap: 8px;
+  }
+
+  .logo-img, .iris-logo {
+    height: 36px;
+  }
+
+  .iris-header {
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .iris-header h1 {
+    font-size: 1.2rem;
+    margin: 0;
+    line-height: 1.1;
+    text-align: center;
+  }
+
+  .hero-content {
+    padding: 8px;
+  }
+
+  .cta-button {
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    margin-top: 8px;
+  }
+
+  /* Make card-stack scale down on very small screens */
+  .card-stack {
+    width: 180px;
+  }
 }
