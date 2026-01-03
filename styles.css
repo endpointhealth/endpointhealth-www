@@ -312,10 +312,10 @@ footer {
   height: 40px !important;         /* ✅ Force exact height */
   width: auto !important;          /* ✅ Prevent stretching */
   max-height: 40px !important;     /* ✅ Cap height */
+  display: inline-block;          /* keep image on same line as text */
   vertical-align: middle;
- margin-left: 4px;               /* ✅ Indent from left edge */
+  margin-left: 4px;               /* ✅ Indent from left edge */
   margin-right: 8px;              /* ✅ Space between icon and text */
-  vertical-align: middle;         /* ✅ Align with text baseline */
   object-fit: contain;            /* ✅ Prevent distortion */
 }
 
