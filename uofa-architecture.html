@@ -614,6 +614,11 @@
           flows. It gives technical and functional stakeholders a common
           starting point before target-state decisions are made.
         </p>
+        <div class="diagram-figure" style="margin-top:0.5rem">
+          <a href="images/uofa/bl-01-full.png" class="diagram-link">
+            <img src="images/uofa/bl-01-full.png" alt="BL-01 Baseline Enterprise System Context preview" style="max-width:260px;border:1px solid #ddd;display:block">
+          </a>
+        </div>
       </div>
     </section>
 
@@ -706,6 +711,83 @@
           architectural decisions from becoming disconnected from institutional
           needs.
         </p>
+        <!-- Generic diagram preview + lightbox -->
+        <div class="diagram-figure" style="margin-top:0.5rem">
+          <a href="images/uofa/rt-01-full.png" class="diagram-link">
+            <img src="images/uofa/rt-01-full.png" alt="RT-01 Requirements to Architecture Traceability preview" style="max-width:260px;border:1px solid #ddd;display:block">
+          </a>
+        </div>
+
+        <style>
+        /* Generic lightbox styles for diagram previews */
+        .diagram-modal{display:none;position:fixed;z-index:9999;inset:0;background:rgba(0,0,0,0.75);align-items:center;justify-content:center}
+        .diagram-modal[aria-hidden="false"]{display:flex}
+        .diagram-modal-content{position:relative;max-width:95%;max-height:95%;padding:0}
+        .diagram-modal-image{display:block;max-width:100%;max-height:100%;border-radius:4px}
+        .diagram-modal-close{position:absolute;right:-10px;top:-10px;background:#fff;border-radius:50%;border:0;width:34px;height:34px;font-size:20px;line-height:1;cursor:pointer}
+        </style>
+
+        <div id="diagram-modal" class="diagram-modal" aria-hidden="true">
+          <div class="diagram-modal-content" role="dialog" aria-modal="true" aria-label="Diagram preview">
+            <button class="diagram-modal-close" id="diagram-close" aria-label="Close">×</button>
+            <img src="" alt="" class="diagram-modal-image" id="diagram-image">
+          </div>
+        </div>
+
+        <script>
+        (function(){
+          var modal = document.getElementById('diagram-modal');
+          var img = document.getElementById('diagram-image');
+          var close = document.getElementById('diagram-close');
+
+          function show(src, alt){ img.src = src; img.alt = alt || ''; modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+          function hide(){ modal.setAttribute('aria-hidden','true'); img.src=''; img.alt=''; document.body.style.overflow=''; }
+
+          // delegate clicks on links that point to image files
+          document.addEventListener('click', function(e){
+            var a = e.target.closest('a');
+            if(!a) return;
+            var href = a.getAttribute('href') || '';
+            if(/\.(png|jpe?g|gif|svg)(#.*)?$/i.test(href)){
+              e.preventDefault();
+              // find an img inside the link to use as preview src if present, otherwise use href
+              var preview = a.querySelector('img');
+              var src = href || (preview && preview.src) || href;
+              var alt = (preview && preview.alt) || a.getAttribute('title') || '';
+              show(src, alt);
+            }
+          });
+
+          close && close.addEventListener('click', hide);
+          modal && modal.addEventListener('click', function(e){ if(e.target===modal) hide(); });
+          document.addEventListener('keydown', function(e){ if(e.key==='Escape' && modal.getAttribute('aria-hidden')==='false') hide(); });
+        })();
+
+        // Wrap any images in images/uofa/ with a clickable link to their full file
+        (function(){
+          function wrapDiagrams(){
+            var imgs = document.querySelectorAll('img');
+            imgs.forEach(function(img){
+              try{
+                var src = img.getAttribute('src') || '';
+                if(src.indexOf('images/uofa/') === -1) return;
+                // already linked?
+                if(img.closest('a')) return;
+                var a = document.createElement('a');
+                a.href = src;
+                a.className = 'diagram-link';
+                img.parentNode.insertBefore(a, img);
+                a.appendChild(img);
+                // ensure a reasonable preview size
+                if(!img.style.maxWidth) img.style.maxWidth = '260px';
+                if(!img.style.border) img.style.border = '1px solid #ddd';
+                img.style.display = 'block';
+              }catch(e){/* ignore */}
+            });
+          }
+          if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wrapDiagrams); else wrapDiagrams();
+        })();
+        </script>
       </div>
 
       <h3>Stakeholders</h3>
@@ -791,6 +873,11 @@
           identify decision-makers, affected groups and teams required for
           architecture validation.
         </p>
+        <div class="diagram-figure" style="margin-top:0.5rem">
+          <a href="images/uofa/ba-02-full.png" class="diagram-link">
+            <img src="images/uofa/ba-02-full.png" alt="BA-02 ASSO Stakeholder Map preview" style="max-width:260px;border:1px solid #ddd;display:block">
+          </a>
+        </div>
       </div>
     </section>
 
@@ -916,6 +1003,11 @@ MuleSoft
           defines the target application relationships and establishes the
           high-level integration direction.
         </p>
+        <div class="diagram-figure" style="margin-top:0.5rem">
+          <a href="images/uofa/rt-01-full.png" class="diagram-link">
+            <img src="images/uofa/rt-01-full.png" alt="TA-01 Target Enterprise Application Architecture preview" style="max-width:260px;border:1px solid #ddd;display:block">
+          </a>
+        </div>
       </div>
     </section>
 
@@ -1128,7 +1220,7 @@ MuleSoft
         </p>
       </div>
 
-      <div class="panel">
+        <div class="panel">
         <div class="panel-title">Integration Artifact</div>
 
         <p>
@@ -1136,6 +1228,11 @@ MuleSoft
           defines the MuleSoft API layer, messaging layer and Infosilem batch
           optimization interface.
         </p>
+        <div class="diagram-figure" style="margin-top:0.5rem">
+          <a href="images/uofa/rt-01-full.png" class="diagram-link">
+            <img src="images/uofa/rt-01-full.png" alt="IA-01 Target Integration Architecture preview" style="max-width:260px;border:1px solid #ddd;display:block">
+          </a>
+        </div>
       </div>
     </section>
 
@@ -1293,6 +1390,11 @@ Published Schedule
           captures the detailed integration relationships supporting schedule
           changes, batch optimization and MuleSoft orchestration.
         </p>
+        <div class="diagram-figure" style="margin-top:0.5rem">
+          <a href="images/uofa/dr-01-full.png" class="diagram-link">
+            <img src="images/uofa/dr-01-full.png" alt="DR-01 Schedule Delta & Conflict Resolution preview" style="max-width:260px;border:1px solid #ddd;display:block">
+          </a>
+        </div>
       </div>
     </section>
 
@@ -1490,6 +1592,11 @@ Published Schedule
           organizes the transition through Baseline, Data Foundation,
           Integrated Solution, Pilot and Production plateaus.
         </p>
+        <div class="diagram-figure" style="margin-top:0.5rem">
+          <a href="images/uofa/rm-01-full.png" class="diagram-link">
+            <img src="images/uofa/rm-01-full.png" alt="RM-01 ASSO Implementation Roadmap preview" style="max-width:260px;border:1px solid #ddd;display:block">
+          </a>
+        </div>
       </div>
     </section>
 
@@ -1706,70 +1813,100 @@ Published Schedule
         <tbody>
 
           <tr>
-            <td class="artifact-id">BL-01</td>
+            <td class="artifact-id">
+              <a href="images/uofa/bl-01-full.png" class="diagram-link"><img src="images/uofa/bl-01-full.png" alt="BL-01 preview" style="width:96px;max-height:60px;border:1px solid #ddd;display:inline-block;vertical-align:middle;margin-right:8px"></a>
+              BL-01
+            </td>
             <td>Enterprise Architecture, IT, application teams</td>
             <td>Establish baseline systems and information flows.</td>
             <td>Prevents target architecture from being based on assumptions.</td>
           </tr>
 
           <tr>
-            <td class="artifact-id">BA-01</td>
+            <td class="artifact-id">
+              <a href="images/uofa/ba-01-full.png" class="diagram-link"><img src="images/uofa/ba-01-full.png" alt="BA-01 preview" style="width:96px;max-height:60px;border:1px solid #ddd;display:inline-block;vertical-align:middle;margin-right:8px"></a>
+              BA-01
+            </td>
             <td>Architecture and institutional leadership</td>
             <td>Define business capabilities required by ASSO.</td>
             <td>Connects technology investment to business capability.</td>
           </tr>
 
           <tr>
-            <td class="artifact-id">BA-02</td>
+            <td class="artifact-id">
+              <a href="images/uofa/ba-02-full.png" class="diagram-link"><img src="images/uofa/ba-02-full.png" alt="BA-02 preview" style="width:96px;max-height:60px;border:1px solid #ddd;display:inline-block;vertical-align:middle;margin-right:8px"></a>
+              BA-02
+            </td>
             <td>Architecture, leadership, project governance</td>
             <td>Identify stakeholders and influence relationships.</td>
             <td>Reduces stakeholder and decision risk.</td>
           </tr>
 
           <tr>
-            <td class="artifact-id">RT-01</td>
+            <td class="artifact-id">
+              <a href="images/uofa/rt-01-full.png" class="diagram-link"><img src="images/uofa/rt-01-full.png" alt="RT-01 preview" style="width:96px;max-height:60px;border:1px solid #ddd;display:inline-block;vertical-align:middle;margin-right:8px"></a>
+              RT-01
+            </td>
             <td>Architecture, business stakeholders, QA</td>
             <td>Trace requirements to goals and architecture elements.</td>
             <td>Provides measurable requirements coverage.</td>
           </tr>
 
           <tr>
-            <td class="artifact-id">TA-01</td>
+            <td class="artifact-id">
+              <a href="images/uofa/ta-01-full.png" class="diagram-link"><img src="images/uofa/ta-01-full.png" alt="TA-01 preview" style="width:96px;max-height:60px;border:1px solid #ddd;display:inline-block;vertical-align:middle;margin-right:8px"></a>
+              TA-01
+            </td>
             <td>Enterprise Architecture, application teams</td>
             <td>Define target application relationships.</td>
             <td>Provides the high-level implementation direction.</td>
           </tr>
 
           <tr>
-            <td class="artifact-id">DA-01</td>
+            <td class="artifact-id">
+              <a href="images/uofa/da-01-full.png" class="diagram-link"><img src="images/uofa/da-01-full.png" alt="DA-01 preview" style="width:96px;max-height:60px;border:1px solid #ddd;display:inline-block;vertical-align:middle;margin-right:8px"></a>
+              DA-01
+            </td>
             <td>Data architects, application owners, DBAs</td>
             <td>Define scheduling data domains and ownership.</td>
             <td>Prevents ownership ambiguity and synchronization conflicts.</td>
           </tr>
 
           <tr>
-            <td class="artifact-id">IA-01</td>
+            <td class="artifact-id">
+              <a href="images/uofa/ia-01-full.png" class="diagram-link"><img src="images/uofa/ia-01-full.png" alt="IA-01 preview" style="width:96px;max-height:60px;border:1px solid #ddd;display:inline-block;vertical-align:middle;margin-right:8px"></a>
+              IA-01
+            </td>
             <td>Middleware developers, integration architects</td>
             <td>Define APIs, messaging and batch integration mechanisms.</td>
             <td>Directs engineering implementation.</td>
           </tr>
 
           <tr>
-            <td class="artifact-id">DR-01</td>
+            <td class="artifact-id">
+              <a href="images/uofa/dr-01-full.png" class="diagram-link"><img src="images/uofa/dr-01-full.png" alt="DR-01 preview" style="width:96px;max-height:60px;border:1px solid #ddd;display:inline-block;vertical-align:middle;margin-right:8px"></a>
+              DR-01
+            </td>
             <td>Integration developers, application teams</td>
             <td>Define detailed schedule-change and conflict mechanics.</td>
             <td>Reduces ambiguity in difficult live-change scenarios.</td>
           </tr>
 
           <tr>
-            <td class="artifact-id">ADR-01</td>
+            <td class="artifact-id">
+              <a href="images/uofa/adr-01-full.png" class="diagram-link"><img src="images/uofa/adr-01-full.png" alt="ADR-01 preview" style="width:96px;max-height:60px;border:1px solid #ddd;display:inline-block;vertical-align:middle;margin-right:8px"></a>
+              ADR-01
+            </td>
             <td>Architecture governance, Registrar, system owners</td>
             <td>Codify ownership and bidirectional synchronization decisions.</td>
             <td>Provides formal decision authority and prevents recurring debate.</td>
           </tr>
 
           <tr>
-            <td class="artifact-id">RM-01</td>
+            <td class="artifact-id">
+              <a href="images/uofa/rm-01-full.png" class="diagram-link"><img src="images/uofa/rm-01-full.png" alt="RM-01 preview" style="width:96px;max-height:60px;border:1px solid #ddd;display:inline-block;vertical-align:middle;margin-right:8px"></a>
+              RM-01
+            </td>
             <td>Program management, architecture, delivery teams</td>
             <td>Define transition plateaus and architecture gaps.</td>
             <td>Tracks implementation progress and readiness.</td>
@@ -2031,10 +2168,22 @@ Published Schedule
       <h4>Related Architecture</h4>
 
       <ul>
-        <li><span class="artifact-id">DA-01</span> — Data ownership and scheduling domains.</li>
-        <li><span class="artifact-id">IA-01</span> — Integration mechanisms.</li>
-        <li><span class="artifact-id">DR-01</span> — Detailed schedule delta and conflict mechanics.</li>
-        <li><span class="artifact-id">RT-01</span> — Requirements traceability.</li>
+        <li>
+          <a href="images/uofa/da-01-full.png" class="diagram-link"><img src="images/uofa/da-01-full.png" alt="DA-01 preview" style="width:96px;max-height:60px;border:1px solid #ddd;display:inline-block;vertical-align:middle;margin-right:8px"></a>
+          <span class="artifact-id">DA-01</span> — Data ownership and scheduling domains.
+        </li>
+        <li>
+          <a href="images/uofa/ia-01-full.png" class="diagram-link"><img src="images/uofa/ia-01-full.png" alt="IA-01 preview" style="width:96px;max-height:60px;border:1px solid #ddd;display:inline-block;vertical-align:middle;margin-right:8px"></a>
+          <span class="artifact-id">IA-01</span> — Integration mechanisms.
+        </li>
+        <li>
+          <a href="images/uofa/dr-01-full.png" class="diagram-link"><img src="images/uofa/dr-01-full.png" alt="DR-01 preview" style="width:96px;max-height:60px;border:1px solid #ddd;display:inline-block;vertical-align:middle;margin-right:8px"></a>
+          <span class="artifact-id">DR-01</span> — Detailed schedule delta and conflict mechanics.
+        </li>
+        <li>
+          <a href="images/uofa/rt-01-full.png" class="diagram-link"><img src="images/uofa/rt-01-full.png" alt="RT-01 preview" style="width:96px;max-height:60px;border:1px solid #ddd;display:inline-block;vertical-align:middle;margin-right:8px"></a>
+          <span class="artifact-id">RT-01</span> — Requirements traceability.
+        </li>
       </ul>
     </section>
 
