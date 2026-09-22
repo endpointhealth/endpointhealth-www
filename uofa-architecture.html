@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>University of Alberta Education Architecture</title>
+  <title>ASSO Architecture Approach & Execution</title>
 
   <style>
     :root {
-      --ua-red: #d32f2f;
-      --ua-dark: #172b4d;
+      --red: #c62828;
+      --dark: #172b4d;
       --text: #253858;
       --muted: #5e6c84;
       --border: #dfe1e6;
@@ -19,6 +19,7 @@
       --blue: #0052cc;
       --green: #00875a;
       --orange: #ff991f;
+      --purple: #6554c0;
     }
 
     * {
@@ -53,13 +54,13 @@
     }
 
     .topbar {
-      background: var(--ua-red);
+      background: var(--red);
       color: white;
       padding: 16px 28px;
     }
 
     .topbar-inner {
-      max-width: 1400px;
+      max-width: 1450px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -75,14 +76,13 @@
     .brand-subtitle {
       font-size: 13px;
       opacity: 0.9;
-      margin-top: 2px;
     }
 
     .container {
-      max-width: 1400px;
+      max-width: 1450px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 250px minmax(0, 1fr);
+      grid-template-columns: 255px minmax(0, 1fr);
       gap: 30px;
       padding: 30px 24px 70px;
     }
@@ -98,19 +98,19 @@
     }
 
     .sidebar-title {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
       text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 12px;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
     }
 
     .sidebar a {
       display: block;
-      padding: 7px 8px;
+      padding: 6px 8px;
       border-radius: 4px;
-      font-size: 14px;
+      font-size: 13px;
       color: var(--text);
     }
 
@@ -132,16 +132,16 @@
     }
 
     .hero h1 {
-      margin: 0 0 8px;
+      margin: 0 0 10px;
       font-size: 38px;
       line-height: 1.2;
-      color: var(--ua-dark);
+      color: var(--dark);
     }
 
-    .hero .subtitle {
+    .subtitle {
       font-size: 19px;
       color: var(--muted);
-      max-width: 900px;
+      max-width: 950px;
       margin-bottom: 22px;
     }
 
@@ -152,7 +152,6 @@
     }
 
     .tag {
-      display: inline-block;
       background: #deebff;
       color: #0747a6;
       padding: 5px 10px;
@@ -174,7 +173,7 @@
       margin: 0 0 22px;
       padding-bottom: 10px;
       border-bottom: 2px solid var(--border);
-      color: var(--ua-dark);
+      color: var(--dark);
       font-size: 27px;
     }
 
@@ -187,7 +186,7 @@
 
     h4 {
       color: #344563;
-      margin-top: 20px;
+      margin-top: 22px;
       margin-bottom: 8px;
     }
 
@@ -222,8 +221,13 @@
     }
 
     .panel.red {
-      border-left-color: var(--ua-red);
+      border-left-color: var(--red);
       background: #ffebe6;
+    }
+
+    .panel.purple {
+      border-left-color: var(--purple);
+      background: #eae6ff;
     }
 
     .panel-title {
@@ -231,56 +235,16 @@
       margin-bottom: 7px;
     }
 
-    .architecture-principle {
-      font-size: 17px;
-      font-weight: 600;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0;
-      font-size: 14px;
-    }
-
-    th,
-    td {
-      border: 1px solid var(--border);
-      padding: 11px 13px;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    th {
-      background: var(--soft);
-      color: var(--ua-dark);
-      font-weight: 700;
-    }
-
-    tr:nth-child(even) td {
-      background: #fafbfc;
-    }
-
-    .artifact-id {
-      font-family: Consolas, "Courier New", monospace;
-      font-weight: 700;
-      color: #0747a6;
-    }
-
-    .model-box {
+    .phase {
+      border-left: 4px solid var(--blue);
+      padding: 15px 18px;
+      margin: 16px 0;
       background: #f8f9fa;
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      padding: 20px;
-      margin: 20px 0;
-      overflow-x: auto;
     }
 
-    .model {
-      font-family: Consolas, "Courier New", monospace;
-      white-space: pre;
-      line-height: 1.5;
-      font-size: 14px;
+    .phase-number {
+      font-weight: 700;
+      color: var(--blue);
     }
 
     .two-column {
@@ -300,14 +264,63 @@
       margin-top: 0;
     }
 
-    .status {
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--border);
+      padding: 11px 13px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--soft);
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) td {
+      background: #fafbfc;
+    }
+
+    .artifact-id {
+      font-family: Consolas, "Courier New", monospace;
+      font-weight: 700;
+      color: #0747a6;
+      white-space: nowrap;
+    }
+
+    .decision-status {
       display: inline-block;
-      padding: 4px 9px;
+      background: #e3fcef;
+      color: #006644;
+      padding: 5px 10px;
       border-radius: 4px;
       font-size: 12px;
       font-weight: 700;
-      background: #e3fcef;
-      color: #006644;
+      margin-bottom: 15px;
+    }
+
+    .model-box {
+      background: #f8f9fa;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 20px;
+      margin: 20px 0;
+      overflow-x: auto;
+    }
+
+    .model {
+      font-family: Consolas, "Courier New", monospace;
+      white-space: pre;
+      line-height: 1.5;
+      font-size: 14px;
     }
 
     .footer {
@@ -360,1202 +373,1763 @@
       h2 {
         font-size: 23px;
       }
+
+      table {
+        display: block;
+        overflow-x: auto;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div>
-        <div class="brand">University of Alberta</div>
-        <div class="brand-subtitle">Education Enterprise Architecture</div>
-      </div>
-      <div>Architecture Case Study</div>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div>
+      <div class="brand">Metropolitan State University</div>
+      <div class="brand-subtitle">Academic Scheduling &amp; Space Optimization</div>
     </div>
-  </header>
-
-  <div class="container">
-
-    <nav class="sidebar">
-      <div class="sidebar-title">Contents</div>
-
-      <a href="#overview">Overview</a>
-      <a href="#vision">1. Architecture Vision</a>
-      <a href="#scope">2. Architecture Scope</a>
-      <a href="#baseline">3. Baseline Architecture</a>
-      <a href="#canonical">4. Canonical Data Model</a>
-      <a href="#relationships">5. Core Relationships</a>
-      <a href="#ownership">6. Data Ownership</a>
-      <a href="#integration">7. Integration Architecture</a>
-      <a href="#events">8. Event Architecture</a>
-      <a href="#api">9. API Architecture</a>
-      <a href="#ontology">10. Ontology &amp; Semantics</a>
-      <a href="#governance">11. Architecture Governance</a>
-      <a href="#artifacts">12. Architecture Artifacts</a>
-      <a href="#implementation">13. Implementation Roadmap</a>
-      <a href="#validation">14. Validation</a>
-      <a href="#decisions">15. Architecture Decisions</a>
-      <a href="#success">16. Success Measures</a>
-    </nav>
-
-    <main class="content">
-
-      <div class="hero">
-        <h1>University of Alberta Education Architecture</h1>
-
-        <div class="subtitle">
-          Enterprise Education Middleware &amp; Canonical Data Model
-        </div>
-
-        <div class="tags">
-          <span class="tag">University of Alberta</span>
-          <span class="tag">Enterprise Architecture</span>
-          <span class="tag">Canonical Model</span>
-          <span class="tag">Education Middleware</span>
-          <span class="tag">CloudEvents</span>
-          <span class="tag">Sparx Enterprise Architect</span>
-          <span class="tag">Ontology</span>
-        </div>
-      </div>
-
-      <!-- OVERVIEW -->
-
-      <section id="overview">
-        <h2>Overview</h2>
-
-        <p>
-          This architecture establishes a university-wide canonical education
-          model and integration architecture for connecting academic,
-          administrative and learning systems.
-        </p>
-
-        <p>
-          The purpose of the canonical model is to provide a consistent
-          enterprise representation of education concepts without requiring
-          individual source systems to adopt the same internal data model.
-        </p>
-
-        <div class="panel success">
-          <div class="panel-title">Architecture Principle</div>
-          <div class="architecture-principle">
-            Systems own their operational data; the canonical model owns
-            enterprise meaning; middleware owns integration mechanics.
-          </div>
-        </div>
-
-        <p>
-          The architecture therefore separates three concerns:
-        </p>
-
-        <ul>
-          <li>
-            <strong>Business systems</strong> remain authoritative for the
-            operational information they create and maintain.
-          </li>
-          <li>
-            <strong>Canonical education concepts</strong> provide a common
-            semantic representation across systems.
-          </li>
-          <li>
-            <strong>Integration middleware</strong> performs transformation,
-            routing, orchestration, validation and delivery.
-          </li>
-        </ul>
-
-        <p>
-          CloudEvents is used where event-driven integration is appropriate.
-          CloudEvents defines the event envelope and contextual metadata;
-          it does not replace the education canonical model.
-        </p>
-      </section>
-
-      <!-- VISION -->
-
-      <section id="vision">
-        <h2>1. Architecture Vision</h2>
-
-        <p>
-          The architecture vision is to establish an education integration
-          foundation that allows university systems to exchange information
-          using stable, shared business semantics.
-        </p>
-
-        <h3>Business Objectives</h3>
-
-        <ul>
-          <li>Reduce point-to-point integration between education systems.</li>
-          <li>Establish consistent definitions for core education concepts.</li>
-          <li>Improve interoperability between SIS, LMS and supporting systems.</li>
-          <li>Provide a reusable enterprise integration model.</li>
-          <li>Support both API-based and event-driven integration.</li>
-          <li>Allow source systems to evolve without forcing consumers to understand every source-specific model.</li>
-          <li>Provide a foundation for future semantic and analytical capabilities.</li>
-        </ul>
-
-        <h3>Architecture Outcomes</h3>
-
-        <div class="two-column">
-          <div class="card">
-            <h3>Common Semantics</h3>
-            <p>
-              Education concepts such as Person, Student, Employee, Course,
-              Course Section, Application, Admission and Enrollment have
-              consistent enterprise meanings.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Decoupled Integration</h3>
-            <p>
-              Consumers interact with canonical representations instead of
-              requiring direct knowledge of every source-system schema.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Event-Driven Capability</h3>
-            <p>
-              Changes can be propagated through events while preserving
-              business semantics and contextual information.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Enterprise Governance</h3>
-            <p>
-              Canonical concepts, mappings and integration contracts become
-              governed architecture assets.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- SCOPE -->
-
-      <section id="scope">
-        <h2>2. Architecture Scope</h2>
-
-        <p>
-          The initial scope covers the core education lifecycle and the
-          integration concepts required to connect university systems.
-        </p>
-
-        <h3>In Scope</h3>
-
-        <ul>
-          <li>Person and identity relationships.</li>
-          <li>Student and employee representations.</li>
-          <li>Academic programs and requirements.</li>
-          <li>Courses and course sections.</li>
-          <li>Admissions and applications.</li>
-          <li>Enrollment and registration.</li>
-          <li>Instructor and teaching relationships.</li>
-          <li>Canonical identifiers.</li>
-          <li>Source-system mappings.</li>
-          <li>API and event integration patterns.</li>
-          <li>CloudEvents event envelopes.</li>
-          <li>Architecture governance.</li>
-          <li>Future ontology and semantic-model alignment.</li>
-        </ul>
-
-        <h3>Out of Scope</h3>
-
-        <ul>
-          <li>Replacing the university SIS.</li>
-          <li>Replacing the LMS.</li>
-          <li>Creating a single physical enterprise database for all education data.</li>
-          <li>Moving operational ownership from source systems into middleware.</li>
-          <li>Using the canonical model as a substitute for operational application schemas.</li>
-        </ul>
-      </section>
-
-      <!-- BASELINE -->
-
-      <section id="baseline">
-        <h2>3. Baseline Architecture</h2>
-
-        <p>
-          The baseline architecture recognizes that university information is
-          distributed across multiple applications, each with its own
-          operational data model and business responsibilities.
-        </p>
-
-        <table>
-          <thead>
-            <tr>
-              <th>System</th>
-              <th>Primary Responsibility</th>
-              <th>Integration Consideration</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <td>PeopleSoft</td>
-              <td>
-                Student, employee, academic and administrative records.
-              </td>
-              <td>
-                Existing enterprise source for many core institutional records.
-              </td>
-            </tr>
-
-            <tr>
-              <td>Learning Management System</td>
-              <td>
-                Course delivery, learning activities and course shells.
-              </td>
-              <td>
-                Requires alignment between academic sections and learning objects.
-              </td>
-            </tr>
-
-            <tr>
-              <td>Admissions Systems</td>
-              <td>
-                Applications, admissions and applicant lifecycle.
-              </td>
-              <td>
-                Applicant information eventually participates in the student lifecycle.
-              </td>
-            </tr>
-
-            <tr>
-              <td>Identity Services</td>
-              <td>
-                Identity, authentication and enterprise identifiers.
-              </td>
-              <td>
-                Provides identity context but does not become the owner of academic information.
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="panel warning">
-          <div class="panel-title">Baseline Observation</div>
-          <p>
-            The primary architectural problem is not simply different
-            databases. The larger problem is that the same business concept
-            can be represented differently by different applications.
-          </p>
-        </div>
-      </section>
-
-      <!-- CANONICAL -->
-
-      <section id="canonical">
-        <h2>4. Canonical Data Model</h2>
-
-        <p>
-          The canonical model provides a shared enterprise vocabulary for
-          education information.
-        </p>
-
-        <p>
-          It is deliberately focused on stable business concepts rather than
-          reproducing every attribute or implementation detail from a source
-          system.
-        </p>
-
-        <table>
-          <thead>
-            <tr>
-              <th>Domain</th>
-              <th>Canonical Concepts</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <td>Identity</td>
-              <td>Person, Identifier</td>
-            </tr>
-
-            <tr>
-              <td>Student</td>
-              <td>Student, Enrollment, Student Registration</td>
-            </tr>
-
-            <tr>
-              <td>Employee</td>
-              <td>Employee, Instructor</td>
-            </tr>
-
-            <tr>
-              <td>Curriculum</td>
-              <td>Program, Course, Course Section, Program Requirement</td>
-            </tr>
-
-            <tr>
-              <td>Admissions</td>
-              <td>Application, Admission</td>
-            </tr>
-
-            <tr>
-              <td>Academic Activity</td>
-              <td>Enrollment, Course Section, Meeting Pattern</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="model-box">
-          <div class="model">Person
-  |
-  +-- Identifier
-  |
-  +-- Student
-  |     |
-  |     +-- Enrollment
-  |           |
-  |           +-- Course Section
-  |
-  +-- Employee
-        |
-        +-- Instructor
-              |
-              +-- Course Section
-
-Program
-  |
-  +-- Program Requirement
-
-Course
-  |
-  +-- Course Section
-
-Application
-  |
-  +-- Admission</div>
-        </div>
-      </section>
-
-      <!-- RELATIONSHIPS -->
-
-      <section id="relationships">
-        <h2>5. Core Relationships</h2>
-
-        <p>
-          Relationships are part of the canonical semantic model. They
-          describe how the enterprise understands the relationships between
-          education concepts.
-        </p>
-
-        <table>
-          <thead>
-            <tr>
-              <th>Source</th>
-              <th>Relationship</th>
-              <th>Target</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <td>Person</td>
-              <td>has identifier</td>
-              <td>Identifier</td>
-            </tr>
-
-            <tr>
-              <td>Person</td>
-              <td>may be</td>
-              <td>Student</td>
-            </tr>
-
-            <tr>
-              <td>Person</td>
-              <td>may be</td>
-              <td>Employee</td>
-            </tr>
-
-            <tr>
-              <td>Student</td>
-              <td>has enrollment</td>
-              <td>Enrollment</td>
-            </tr>
-
-            <tr>
-              <td>Enrollment</td>
-              <td>references</td>
-              <td>Course Section</td>
-            </tr>
-
-            <tr>
-              <td>Instructor</td>
-              <td>teaches</td>
-              <td>Course Section</td>
-            </tr>
-
-            <tr>
-              <td>Course</td>
-              <td>has section</td>
-              <td>Course Section</td>
-            </tr>
-
-            <tr>
-              <td>Application</td>
-              <td>submits</td>
-              <td>Admission</td>
-            </tr>
-
-            <tr>
-              <td>Program</td>
-              <td>defines requirements for</td>
-              <td>Student</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="panel">
-          <div class="panel-title">Modeling Note</div>
-          <p>
-            Relationships should be modeled according to their business
-            meaning rather than simply mirroring foreign-key relationships in
-            a particular application database.
-          </p>
-        </div>
-      </section>
-
-      <!-- OWNERSHIP -->
-
-      <section id="ownership">
-        <h2>6. Data Ownership</h2>
-
-        <p>
-          The canonical model does not mean that the canonical layer becomes
-          the system of record for every concept.
-        </p>
-
-        <p>
-          Ownership remains with the application or business domain
-          responsible for maintaining the authoritative operational state.
-        </p>
-
-        <table>
-          <thead>
-            <tr>
-              <th>Concept</th>
-              <th>Typical Authority</th>
-              <th>Canonical Role</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <td>Person</td>
-              <td>Enterprise identity / institutional system</td>
-              <td>Shared representation</td>
-            </tr>
-
-            <tr>
-              <td>Student</td>
-              <td>Student information system</td>
-              <td>Canonical student representation</td>
-            </tr>
-
-            <tr>
-              <td>Employee</td>
-              <td>HR / institutional system</td>
-              <td>Canonical employee representation</td>
-            </tr>
-
-            <tr>
-              <td>Course</td>
-              <td>Academic / curriculum system</td>
-              <td>Canonical academic course representation</td>
-            </tr>
-
-            <tr>
-              <td>Course Section</td>
-              <td>Student information system</td>
-              <td>Canonical scheduled offering representation</td>
-            </tr>
-
-            <tr>
-              <td>Program Requirement</td>
-              <td>Curriculum / academic governance system</td>
-              <td>Canonical requirement representation</td>
-            </tr>
-
-            <tr>
-              <td>Application</td>
-              <td>Admissions system</td>
-              <td>Canonical application representation</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="panel success">
-          <div class="panel-title">Key Principle</div>
-          <p>
-            Canonicalization standardizes meaning; it does not transfer
-            operational ownership.
-          </p>
-        </div>
-      </section>
-
-      <!-- INTEGRATION -->
-
-      <section id="integration">
-        <h2>7. Integration Architecture</h2>
-
-        <p>
-          The integration architecture uses enterprise middleware as the
-          mediation layer between source systems and consumers.
-        </p>
-
-        <div class="model-box">
-          <div class="model">+-------------------+
-|   Source System   |
-+-------------------+
-          |
-          | Source-specific data
-          v
-+---------------------------+
-| Enterprise Integration    |
-| Middleware                |
-|                           |
-| Routing                   |
-| Transformation            |
-| Validation                |
-| Orchestration             |
-| Delivery                  |
-+---------------------------+
-          |
-          | Canonical representation
-          v
-+---------------------------+
-| Canonical Education Model |
-+---------------------------+
-          |
-          +----------+----------+
-          |          |          |
-          v          v          v
-      Consumer A Consumer B Consumer C</div>
-        </div>
-
-        <h3>Middleware Responsibilities</h3>
-
-        <ul>
-          <li>Message routing.</li>
-          <li>Transformation between source and canonical models.</li>
-          <li>Validation.</li>
-          <li>Schema and contract enforcement.</li>
-          <li>Correlation.</li>
-          <li>Sequencing where required.</li>
-          <li>Retry and delivery handling.</li>
-          <li>Monitoring and operational telemetry.</li>
-          <li>API mediation.</li>
-          <li>Event distribution.</li>
-        </ul>
-
-        <div class="panel red">
-          <div class="panel-title">What Middleware Does Not Own</div>
-          <p>
-            Middleware should not become the business system of record simply
-            because it performs transformation or orchestration.
-          </p>
-        </div>
-      </section>
-
-      <!-- EVENTS -->
-
-      <section id="events">
-        <h2>8. Event Architecture</h2>
-
-        <p>
-          The architecture supports event-driven integration using
-          CloudEvents as a standardized event envelope.
-        </p>
-
-        <div class="two-column">
-          <div class="card">
-            <h3>CloudEvents</h3>
-            <p>
-              Defines the event metadata and envelope, including event identity,
-              source, type, subject and time.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Canonical Model</h3>
-            <p>
-              Defines the business meaning of the education information
-              contained within the event.
-            </p>
-          </div>
-        </div>
-
-        <h3>Conceptual Event</h3>
-
-        <div class="model-box">
-          <div class="model">CloudEvent
-  |
-  +-- id
-  +-- source
-  +-- type
-  +-- subject
-  +-- time
-  +-- data
-        |
-        +-- Canonical Education Payload</div>
-        </div>
-
-        <p>
-          This separation prevents CloudEvents from becoming confused with the
-          business domain model.
-        </p>
-
-        <h3>Example Event Types</h3>
-
-        <ul>
-          <li>StudentCreated</li>
-          <li>StudentUpdated</li>
-          <li>CourseCreated</li>
-          <li>CourseSectionCreated</li>
-          <li>CourseSectionUpdated</li>
-          <li>EnrollmentCreated</li>
-          <li>EnrollmentUpdated</li>
-          <li>ApplicationSubmitted</li>
-          <li>AdmissionCreated</li>
-        </ul>
-      </section>
-
-      <!-- API -->
-
-      <section id="api">
-        <h2>9. API Architecture</h2>
-
-        <p>
-          APIs provide synchronous access where consumers require current
-          information or where an event is not the appropriate interaction
-          pattern.
-        </p>
-
-        <table>
-          <thead>
-            <tr>
-              <th>Pattern</th>
-              <th>Use</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <td>REST API</td>
-              <td>Request/response access to canonical resources.</td>
-            </tr>
-
-            <tr>
-              <td>Event</td>
-              <td>Notification that something has changed.</td>
-            </tr>
-
-            <tr>
-              <td>Messaging</td>
-              <td>Asynchronous delivery and decoupling.</td>
-            </tr>
-
-            <tr>
-              <td>Batch</td>
-              <td>Large-volume or reconciliation processing.</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="panel">
-          <div class="panel-title">Integration Pattern Selection</div>
-          <p>
-            The architecture does not require every integration to use events.
-            API, messaging, event and batch patterns are selected according to
-            business latency, volume, consistency and operational requirements.
-          </p>
-        </div>
-      </section>
-
-      <!-- ONTOLOGY -->
-
-      <section id="ontology">
-        <h2>10. Ontology &amp; Semantics</h2>
-
-        <p>
-          An ontology can provide an additional semantic layer above the
-          canonical model where stronger formal reasoning is required.
-        </p>
-
-        <p>
-          The ontology should not replace the operational canonical model.
-          Instead, it can formally describe concepts, relationships,
-          classifications and constraints that require machine-interpretable
-          semantics.
-        </p>
-
-        <h3>Layered Semantic Architecture</h3>
-
-        <div class="model-box">
-          <div class="model">Operational Systems
-        |
-        v
-Canonical Education Model
-        |
-        v
-Semantic / Ontology Layer
-        |
-        +---- Concept definitions
-        +---- Relationships
-        +---- Classifications
-        +---- Constraints
-        +---- Reasoning
-        |
-        v
-Semantic Consumers</div>
-        </div>
-
-        <h3>Potential Ontology Responsibilities</h3>
-
-        <ul>
-          <li>Formal definition of education concepts.</li>
-          <li>Classification and taxonomy.</li>
-          <li>Semantic relationships between concepts.</li>
-          <li>Equivalence or mapping between external vocabularies.</li>
-          <li>Validation of semantic constraints.</li>
-          <li>Reasoning over relationships where appropriate.</li>
-        </ul>
-
-        <div class="panel warning">
-          <div class="panel-title">Architectural Boundary</div>
-          <p>
-            Ontology reasoning should not become a real-time dependency for
-            ordinary operational transactions unless there is a specific
-            business requirement for it.
-          </p>
-        </div>
-
-        <p>
-          The canonical model remains the practical integration contract,
-          while ontology provides a stronger formal semantic representation
-          where it adds measurable value.
-        </p>
-      </section>
-
-      <!-- GOVERNANCE -->
-
-      <section id="governance">
-        <h2>11. Architecture Governance</h2>
-
-        <p>
-          The canonical model should be governed as an enterprise architecture
-          asset rather than as a private data structure owned by a single
-          application team.
-        </p>
-
-        <h3>Governance Responsibilities</h3>
-
-        <ul>
-          <li>Approve canonical concepts.</li>
-          <li>Define business ownership.</li>
-          <li>Approve semantic changes.</li>
-          <li>Review new source-system mappings.</li>
-          <li>Manage versioning.</li>
-          <li>Review integration contracts.</li>
-          <li>Resolve semantic conflicts between systems.</li>
-          <li>Maintain architectural traceability.</li>
-        </ul>
-
-        <h3>Change Process</h3>
-
-        <ol>
-          <li>Identify business requirement or integration need.</li>
-          <li>Determine whether an existing canonical concept satisfies it.</li>
-          <li>Extend the model only when required.</li>
-          <li>Identify affected source and consuming systems.</li>
-          <li>Update mappings and contracts.</li>
-          <li>Validate backward compatibility.</li>
-          <li>Approve and version the change.</li>
-          <li>Deploy through controlled integration pipelines.</li>
-        </ol>
-      </section>
-
-      <!-- ARTIFACTS -->
-
-      <section id="artifacts">
-        <h2>12. Architecture Artifacts</h2>
-
-        <p>
-          Sparx Enterprise Architect is used as the authoritative architecture
-          modeling repository.
-        </p>
-
-        <table>
-          <thead>
-            <tr>
-              <th>Artifact</th>
-              <th>Purpose</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <td class="artifact-id">BA-01</td>
-              <td>
-                Business capability model showing the capabilities required
-                to support education integration.
-              </td>
-            </tr>
-
-            <tr>
-              <td class="artifact-id">BA-02</td>
-              <td>
-                Stakeholder model showing organizational responsibilities and
-                influence.
-              </td>
-            </tr>
-
-            <tr>
-              <td class="artifact-id">RT-01</td>
-              <td>
-                Requirements and architecture traceability.
-              </td>
-            </tr>
-
-            <tr>
-              <td class="artifact-id">BL-01</td>
-              <td>
-                Baseline application architecture.
-              </td>
-            </tr>
-
-            <tr>
-              <td class="artifact-id">TA-01</td>
-              <td>
-                Target application architecture.
-              </td>
-            </tr>
-
-            <tr>
-              <td class="artifact-id">DA-01</td>
-              <td>
-                Canonical education data domains and ownership.
-              </td>
-            </tr>
-
-            <tr>
-              <td class="artifact-id">IA-01</td>
-              <td>
-                Integration architecture showing API, messaging and batch
-                integration mechanisms.
-              </td>
-            </tr>
-
-            <tr>
-              <td class="artifact-id">DR-01</td>
-              <td>
-                Detailed integration and schedule-change mechanics.
-              </td>
-            </tr>
-
-            <tr>
-              <td class="artifact-id">ADR-01</td>
-              <td>
-                Formal architecture decision record for data ownership and
-                synchronization.
-              </td>
-            </tr>
-
-            <tr>
-              <td class="artifact-id">RM-01</td>
-              <td>
-                Implementation roadmap and architecture gaps.
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
-      <!-- IMPLEMENTATION -->
-
-      <section id="implementation">
-        <h2>13. Implementation Roadmap</h2>
-
-        <p>
-          Implementation proceeds incrementally so that architecture decisions
-          can be validated before broad enterprise adoption.
-        </p>
-
-        <table>
-          <thead>
-            <tr>
-              <th>Phase</th>
-              <th>Focus</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <td>1. Foundation</td>
-              <td>
-                Establish canonical concepts, ownership, identifiers and
-                governance.
-              </td>
-            </tr>
-
-            <tr>
-              <td>2. Integration Foundation</td>
-              <td>
-                Establish middleware APIs, messaging and transformation
-                capabilities.
-              </td>
-            </tr>
-
-            <tr>
-              <td>3. Pilot</td>
-              <td>
-                Integrate a limited number of high-value education processes.
-              </td>
-            </tr>
-
-            <tr>
-              <td>4. Expansion</td>
-              <td>
-                Add additional systems, domains and event types.
-              </td>
-            </tr>
-
-            <tr>
-              <td>5. Enterprise Adoption</td>
-              <td>
-                Establish the canonical model as a governed enterprise
-                integration asset.
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h3>Implementation Principles</h3>
-
-        <ul>
-          <li>Start with high-value integration scenarios.</li>
-          <li>Reuse existing canonical concepts.</li>
-          <li>Avoid creating concepts for individual application fields.</li>
-          <li>Version contracts independently from application releases where possible.</li>
-          <li>Automate mapping and validation.</li>
-          <li>Maintain architecture and implementation traceability.</li>
-        </ul>
-      </section>
-
-      <!-- VALIDATION -->
-
-      <section id="validation">
-        <h2>14. Validation</h2>
-
-        <p>
-          The architecture should be validated against actual university
-          integration scenarios rather than only reviewing the conceptual
-          model.
-        </p>
-
-        <h3>Validation Scenarios</h3>
-
-        <ol>
-          <li>
-            Create a new student and propagate the canonical student
-            representation.
-          </li>
-          <li>
-            Update an employee and validate identifier relationships.
-          </li>
-          <li>
-            Create a course and course section.
-          </li>
-          <li>
-            Assign an instructor to a course section.
-          </li>
-          <li>
-            Register a student in a course section.
-          </li>
-          <li>
-            Submit an application and create an admission relationship.
-          </li>
-          <li>
-            Publish an event using the CloudEvents envelope.
-          </li>
-          <li>
-            Consume the same canonical event in multiple downstream systems.
-          </li>
-        </ol>
-
-        <h3>Validation Criteria</h3>
-
-        <ul>
-          <li>Canonical meaning is unambiguous.</li>
-          <li>Source ownership is preserved.</li>
-          <li>Mappings are deterministic.</li>
-          <li>Events are traceable.</li>
-          <li>Consumers do not require source-specific knowledge.</li>
-          <li>Changes can be versioned without breaking existing consumers.</li>
-          <li>Integration failures can be detected and reconciled.</li>
-        </ul>
-      </section>
-
-      <!-- DECISIONS -->
-
-      <section id="decisions">
-        <h2>15. Architecture Decisions</h2>
-
-        <h3>ADR-01 — Canonical Model and Data Ownership</h3>
-
-        <span class="status">Accepted</span>
-
-        <p>
-          The canonical education model is an enterprise semantic model, not
-          a replacement for source-system ownership.
-        </p>
-
-        <h4>Decision</h4>
-
-        <ul>
-          <li>Source systems remain authoritative for operational data.</li>
-          <li>The canonical model defines shared enterprise meaning.</li>
-          <li>Middleware performs integration mechanics.</li>
-          <li>CloudEvents provides an event envelope where appropriate.</li>
-          <li>Ontology can provide additional formal semantics where justified.</li>
-        </ul>
-
-        <h4>Rationale</h4>
-
-        <p>
-          A canonical model reduces semantic coupling without requiring every
-          application to adopt the same physical database design.
-        </p>
-
-        <p>
-          This architecture also avoids making middleware an accidental system
-          of record.
-        </p>
-
-        <h3>Architecture Trade-off</h3>
-
-        <p>
-          The architecture deliberately separates a practical integration
-          canonical model from a more formal ontology. The canonical model is
-          optimized for application interoperability, while ontology can be
-          introduced where formal semantic reasoning provides additional value.
-        </p>
-
-        <div class="panel">
-          <div class="panel-title">Important Architectural Distinction</div>
-          <p>
-            CloudEvents is an event standard. It is not the education
-            canonical model. The canonical model defines the education
-            information carried by the event.
-          </p>
-        </div>
-      </section>
-
-      <!-- SUCCESS -->
-
-      <section id="success">
-        <h2>16. Success Measures</h2>
-
-        <p>
-          Success should be measured through architectural and operational
-          outcomes rather than simply the number of integrations implemented.
-        </p>
-
-        <table>
-          <thead>
-            <tr>
-              <th>Measure</th>
-              <th>Desired Outcome</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <td>Canonical concept reuse</td>
-              <td>
-                New integrations reuse existing enterprise concepts where appropriate.
-              </td>
-            </tr>
-
-            <tr>
-              <td>Point-to-point integration</td>
-              <td>
-                Reduction in direct source-to-consumer dependencies.
-              </td>
-            </tr>
-
-            <tr>
-              <td>Data ownership</td>
-              <td>
-                Each canonical concept has an identified authoritative owner.
-              </td>
-            </tr>
-
-            <tr>
-              <td>Integration reliability</td>
-              <td>
-                Failures, retries and reconciliation are observable and manageable.
-              </td>
-            </tr>
-
-            <tr>
-              <td>Semantic consistency</td>
-              <td>
-                Systems use consistent definitions for shared education concepts.
-              </td>
-            </tr>
-
-            <tr>
-              <td>Change impact</td>
-              <td>
-                Source-system changes can be absorbed through controlled mappings.
-              </td>
-            </tr>
-
-            <tr>
-              <td>Event interoperability</td>
-              <td>
-                CloudEvents-based integrations can be consumed consistently.
-              </td>
-            </tr>
-
-            <tr>
-              <td>Governance</td>
-              <td>
-                Canonical model changes follow an established architecture process.
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="panel success">
-          <div class="panel-title">End State</div>
-
-          <p>
-            The University of Alberta has a governed education canonical model
-            that provides common enterprise semantics while allowing source
-            systems to retain operational ownership and evolve independently.
-          </p>
-
-          <p>
-            Enterprise middleware provides the integration mechanism, APIs
-            provide synchronous access, CloudEvents supports event-driven
-            propagation, and ontology provides an optional formal semantic
-            layer where it delivers additional value.
-          </p>
-        </div>
-      </section>
-
-      <div class="footer">
-        University of Alberta Education Architecture · Enterprise Architecture Case Study
-      </div>
-
-    </main>
+    <div>Enterprise Architecture Case Study</div>
   </div>
+</header>
+
+<div class="container">
+
+  <nav class="sidebar">
+    <div class="sidebar-title">Contents</div>
+
+    <a href="#overview">Overview</a>
+    <a href="#vision">1. Architecture Vision &amp; Scope</a>
+    <a href="#baseline">2. Baseline Architecture Assessment</a>
+    <a href="#requirements">3. Requirements &amp; Stakeholders</a>
+    <a href="#target">4. Target Architecture</a>
+    <a href="#data">5. Data Architecture &amp; Ownership</a>
+    <a href="#integration">6. Integration &amp; Synchronization</a>
+    <a href="#edge">7. Schedule Changes &amp; Edge Cases</a>
+    <a href="#collaboration">8. Stakeholder Collaboration</a>
+    <a href="#gaps">9. Gap Analysis</a>
+    <a href="#implementation">10. Implementation &amp; Migration</a>
+    <a href="#validation">11. Validation &amp; Pilot</a>
+    <a href="#production">12. Production Readiness</a>
+    <a href="#artifacts">13. Architecture Artifacts</a>
+    <a href="#adr">14. Architecture Decision Record</a>
+    <a href="#success">15. Success Measures</a>
+  </nav>
+
+  <main class="content">
+
+    <!-- OVERVIEW -->
+
+    <div class="hero">
+      <h1>ASSO Architecture Approach &amp; Execution</h1>
+
+      <div class="subtitle">
+        Enterprise architecture approach for the implementation and integration
+        of the Infosilem Academic Suite for Academic Scheduling &amp; Space
+        Optimization.
+      </div>
+
+      <div class="tags">
+        <span class="tag">MSU</span>
+        <span class="tag">ASSO</span>
+        <span class="tag">Enterprise Architecture</span>
+        <span class="tag">TOGAF-Aligned</span>
+        <span class="tag">Sparx Enterprise Architect</span>
+        <span class="tag">Infosilem Academic</span>
+      </div>
+    </div>
+
+    <section id="overview">
+      <h2>Overview</h2>
+
+      <p>
+        Metropolitan State University (MSU) is implementing Infosilem Academic
+        to support Academic Scheduling &amp; Space Optimization (ASSO) across
+        approximately 34,000 students, 14 degree-granting colleges, three
+        campuses and approximately 4,900 course sections per term.
+      </p>
+
+      <p>
+        The architecture must address more than the technical integration of
+        applications. It must establish clear data ownership, define
+        synchronization behavior, accommodate institutional scheduling policy,
+        protect specialized spaces, support faculty constraints and ensure
+        that downstream operational systems receive reliable schedule updates.
+      </p>
+
+      <div class="panel success">
+        <div class="panel-title">Architecture Strategy</div>
+
+        <p>
+          Establish the baseline, make ownership and requirements explicit,
+          design the target architecture, define synchronization and conflict
+          rules before implementation, validate through a controlled pilot,
+          and establish governance mechanisms that remain effective after
+          production deployment.
+        </p>
+      </div>
+
+      <p>
+        The approach follows <strong>TOGAF-aligned architecture practices</strong>
+        without assuming that MSU has formally adopted TOGAF. Architecture
+        Vision, Baseline Architecture, Target Architecture, Gap Analysis,
+        Migration Planning, Implementation Governance, Architecture Change
+        Management and continuous Requirements Management are used as practical
+        organizing principles.
+      </p>
+    </section>
+
+    <!-- VISION -->
+
+    <section id="vision">
+      <h2>1. Architecture Vision &amp; Scope</h2>
+
+      <h3>Business Context</h3>
+
+      <p>
+        The ASSO initiative introduces an optimization engine into an
+        established academic ecosystem. PeopleSoft Campus Solutions remains
+        the master for core academic and student information, while
+        CurricUNET / Watermark is authoritative for curriculum and program
+        requirements. Infosilem becomes the planning and optimization
+        environment for academic schedules and room assignments.
+      </p>
+
+      <p>
+        MuleSoft Anypoint provides the enterprise integration and orchestration
+        layer connecting these systems to downstream platforms including
+        CollegeNET 25Live, Canvas LMS, LenelS2 and Johnson Controls Metasys.
+      </p>
+
+      <h3>Architecture Objectives</h3>
+
+      <ul>
+        <li>Establish explicit data ownership and mastery boundaries.</li>
+        <li>Integrate Infosilem without undermining PeopleSoft or CurricUNET authority.</li>
+        <li>Support bidirectional synchronization during the scheduling lifecycle.</li>
+        <li>Support comprehensive batch optimization and timely downstream updates.</li>
+        <li>Enforce centralized university room governance.</li>
+        <li>Enforce prime-time distribution caps and standard meeting patterns.</li>
+        <li>Represent specialized/shared-space constraints.</li>
+        <li>Represent faculty availability, workload and multi-campus travel constraints.</li>
+        <li>Provide reliable schedule publication and downstream propagation.</li>
+        <li>Provide operational governance for changes after implementation.</li>
+      </ul>
+
+      <h3>Scope</h3>
+
+      <div class="two-column">
+        <div class="card">
+          <h3>Architecture Scope</h3>
+          <ul>
+            <li>Business architecture</li>
+            <li>Application architecture</li>
+            <li>Data architecture</li>
+            <li>Integration architecture</li>
+            <li>Security considerations</li>
+            <li>Data ownership</li>
+            <li>Synchronization and reconciliation</li>
+            <li>Implementation and migration</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Operational Scope</h3>
+          <ul>
+            <li>Academic scheduling</li>
+            <li>Room assignment</li>
+            <li>Faculty constraints</li>
+            <li>Student schedule conflicts</li>
+            <li>Downstream schedule publication</li>
+            <li>Room access automation</li>
+            <li>Occupancy-driven building operations</li>
+            <li>Non-academic space coordination</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- BASELINE -->
+
+    <section id="baseline">
+      <h2>2. Baseline Architecture Assessment</h2>
+
+      <p>
+        The first architectural activity is to establish a fact-based baseline
+        rather than immediately designing the target solution.
+      </p>
+
+      <h3>Sequential Baseline Assessment</h3>
+
+      <div class="phase">
+        <div class="phase-number">Step 1 — Inventory applications and responsibilities</div>
+        <p>
+          Document PeopleSoft Campus Solutions, CurricUNET / Watermark,
+          MuleSoft, Infosilem, 25Live, Canvas, LenelS2 and Metasys and identify
+          the business processes each system supports.
+        </p>
+      </div>
+
+      <div class="phase">
+        <div class="phase-number">Step 2 — Establish current data ownership</div>
+        <p>
+          Identify which application currently creates, maintains and publishes
+          each critical scheduling data domain.
+        </p>
+      </div>
+
+      <div class="phase">
+        <div class="phase-number">Step 3 — Document current interfaces</div>
+        <p>
+          Identify APIs, files, messaging, batch interfaces, database exchanges
+          and manual processes.
+        </p>
+      </div>
+
+      <div class="phase">
+        <div class="phase-number">Step 4 — Identify architectural gaps</div>
+        <p>
+          Compare the current integration behavior with the required scheduling
+          lifecycle, ownership model, latency requirements and operational
+          constraints.
+        </p>
+      </div>
+
+      <div class="phase">
+        <div class="phase-number">Step 5 — Validate the baseline with stakeholders</div>
+        <p>
+          Review the baseline with Registrar, schedulers, PeopleSoft,
+          middleware, Infosilem, Facilities, Security, LMS and other affected
+          teams before treating it as authoritative.
+        </p>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">Baseline Artifact</div>
+
+        <p>
+          <span class="artifact-id">BL-01 — Baseline Enterprise System Context</span>
+          establishes the baseline application ecosystem and major information
+          flows. It gives technical and functional stakeholders a common
+          starting point before target-state decisions are made.
+        </p>
+      </div>
+    </section>
+
+    <!-- REQUIREMENTS -->
+
+    <section id="requirements">
+      <h2>3. Requirements &amp; Stakeholder Analysis</h2>
+
+      <h3>Institutional Requirements</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Requirement</th>
+            <th>Architectural Response</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td class="artifact-id">REQ-01</td>
+            <td>Centralized Room Governance</td>
+            <td>University instructional spaces managed centrally through Infosilem.</td>
+          </tr>
+
+          <tr>
+            <td class="artifact-id">REQ-02</td>
+            <td>Prime-Time Scheduling Distribution</td>
+            <td>Enforce the 45% prime-time contact-hour cap.</td>
+          </tr>
+
+          <tr>
+            <td class="artifact-id">REQ-03</td>
+            <td>Standard Meeting Patterns</td>
+            <td>Support 50-minute MWF and 75-minute TR patterns.</td>
+          </tr>
+
+          <tr>
+            <td class="artifact-id">REQ-04</td>
+            <td>Data Ownership &amp; Mastery</td>
+            <td>Explicit source-of-truth boundaries and lifecycle rules.</td>
+          </tr>
+
+          <tr>
+            <td class="artifact-id">REQ-05</td>
+            <td>Bidirectional Schedule Synchronization</td>
+            <td>Support controlled exchange between PeopleSoft and Infosilem.</td>
+          </tr>
+
+          <tr>
+            <td class="artifact-id">REQ-06</td>
+            <td>Specialized &amp; Shared Space Constraints</td>
+            <td>Represent equipment, certification, turnover and shared-space requirements.</td>
+          </tr>
+
+          <tr>
+            <td class="artifact-id">REQ-07</td>
+            <td>Faculty Availability &amp; Workload Constraints</td>
+            <td>Account for daily spread, workload and multi-campus travel.</td>
+          </tr>
+
+          <tr>
+            <td class="artifact-id">REQ-08</td>
+            <td>Downstream Near-Real-Time Integration</td>
+            <td>Propagate schedule changes to operational consumers promptly.</td>
+          </tr>
+
+          <tr>
+            <td class="artifact-id">REQ-09</td>
+            <td>Security, Identity &amp; Access Control</td>
+            <td>Use enterprise identity, authorization and secure integration.</td>
+          </tr>
+
+          <tr>
+            <td class="artifact-id">REQ-10</td>
+            <td>Optimization &amp; Schedule Quality</td>
+            <td>Use Infosilem optimization to improve schedule quality and space utilization.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="panel">
+        <div class="panel-title">Traceability</div>
+
+        <p>
+          <span class="artifact-id">RT-01 — Requirements to Architecture Traceability</span>
+          connects drivers, goals, principles, constraints, requirements and
+          architecture elements. This makes requirements testable and prevents
+          architectural decisions from becoming disconnected from institutional
+          needs.
+        </p>
+      </div>
+
+      <h3>Stakeholders</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Stakeholder Group</th>
+            <th>Primary Concern</th>
+            <th>Architecture Engagement</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Registrar / Academic Operations</td>
+            <td>Schedule governance, institutional policy and operational authority.</td>
+            <td>Decision authority and acceptance.</td>
+          </tr>
+
+          <tr>
+            <td>College Schedulers</td>
+            <td>Practical scheduling workflows and local constraints.</td>
+            <td>Requirements, workshops, UAT and pilot.</td>
+          </tr>
+
+          <tr>
+            <td>Faculty / Instructors</td>
+            <td>Availability, workload and travel constraints.</td>
+            <td>Constraint validation.</td>
+          </tr>
+
+          <tr>
+            <td>Students</td>
+            <td>Schedule conflicts and usable academic schedules.</td>
+            <td>Outcome validation.</td>
+          </tr>
+
+          <tr>
+            <td>Facilities Management</td>
+            <td>Room governance, specialized spaces and occupancy.</td>
+            <td>Space requirements and operational validation.</td>
+          </tr>
+
+          <tr>
+            <td>Campus Security</td>
+            <td>Room access and automated unlock schedules.</td>
+            <td>Downstream integration validation.</td>
+          </tr>
+
+          <tr>
+            <td>Enterprise IT / Architecture</td>
+            <td>Enterprise standards, integration and governance.</td>
+            <td>Architecture ownership.</td>
+          </tr>
+
+          <tr>
+            <td>PeopleSoft Team</td>
+            <td>SIS data integrity and operational ownership.</td>
+            <td>Source-system authority and integration.</td>
+          </tr>
+
+          <tr>
+            <td>Infosilem Team</td>
+            <td>Optimization model and schedule planning.</td>
+            <td>Planning authority and optimization validation.</td>
+          </tr>
+
+          <tr>
+            <td>Integration / MuleSoft Team</td>
+            <td>APIs, messaging, routing and delivery.</td>
+            <td>Integration implementation.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="panel">
+        <div class="panel-title">Stakeholder Artifact</div>
+
+        <p>
+          <span class="artifact-id">BA-02 — ASSO Stakeholder Map</span>
+          documents stakeholder relationships and influence. It is used to
+          identify decision-makers, affected groups and teams required for
+          architecture validation.
+        </p>
+      </div>
+    </section>
+
+    <!-- TARGET -->
+
+    <section id="target">
+      <h2>4. Target Architecture</h2>
+
+      <p>
+        The target architecture separates business ownership from integration
+        mechanics and establishes MuleSoft as the enterprise integration and
+        orchestration layer.
+      </p>
+
+      <div class="model-box">
+        <div class="model">CurricUNET
+     |
+     | Curriculum / requirements
+     v
++------------------+
+|     MuleSoft     |
+| API / Messaging  |
+| Orchestration    |
++------------------+
+     |          |
+     |          |
+     v          v
+PeopleSoft    Infosilem
+     ^          |
+     |          |
+     +----------+
+       Schedule
+       synchronization
+
+MuleSoft
+  |
+  +----> 25Live
+  +----> Canvas
+  +----> LenelS2
+  +----> Metasys</div>
+      </div>
+
+      <h3>Target-State Responsibilities</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Component</th>
+            <th>Responsibility</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>PeopleSoft Campus Solutions</td>
+            <td>
+              System of record for core academic and student information,
+              active term sections, instructor workload and registrations.
+            </td>
+          </tr>
+
+          <tr>
+            <td>CurricUNET / Watermark</td>
+            <td>
+              Authority for curriculum, program requirements, requisites and
+              approved contact-hour structures.
+            </td>
+          </tr>
+
+          <tr>
+            <td>Infosilem Academic</td>
+            <td>
+              Planning and optimization authority for schedules, meeting
+              patterns and room assignments within the scheduling lifecycle.
+            </td>
+          </tr>
+
+          <tr>
+            <td>MuleSoft Anypoint</td>
+            <td>
+              Integration, transformation, routing, orchestration, validation,
+              correlation, retry, delivery and reconciliation mechanics.
+            </td>
+          </tr>
+
+          <tr>
+            <td>25Live</td>
+            <td>Non-academic room reservations and event coordination.</td>
+          </tr>
+
+          <tr>
+            <td>Canvas</td>
+            <td>Downstream learning-management section and schedule integration.</td>
+          </tr>
+
+          <tr>
+            <td>LenelS2</td>
+            <td>Room access and automated unlock schedules.</td>
+          </tr>
+
+          <tr>
+            <td>Johnson Controls Metasys</td>
+            <td>Occupancy-driven building operations and HVAC scheduling.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="panel success">
+        <div class="panel-title">Target Architecture Principle</div>
+
+        <p>
+          MuleSoft orchestrates integration but does not become the business
+          system of record and does not independently determine business
+          outcomes when systems disagree.
+        </p>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">Target Artifact</div>
+
+        <p>
+          <span class="artifact-id">TA-01 — Target Enterprise Application Architecture</span>
+          defines the target application relationships and establishes the
+          high-level integration direction.
+        </p>
+      </div>
+    </section>
+
+    <!-- DATA -->
+
+    <section id="data">
+      <h2>5. Data Architecture &amp; Ownership</h2>
+
+      <p>
+        Data ownership is established before detailed synchronization behavior.
+        This prevents the integration layer from becoming the accidental
+        authority for business data.
+      </p>
+
+      <h3>Ownership Model</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Data Domain</th>
+            <th>Authoritative System</th>
+            <th>Role of Infosilem</th>
+            <th>Role of MuleSoft</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Course</td>
+            <td>PeopleSoft</td>
+            <td>Consumes for scheduling.</td>
+            <td>Transforms and routes.</td>
+          </tr>
+
+          <tr>
+            <td>Course Section</td>
+            <td>PeopleSoft</td>
+            <td>Schedules and optimizes.</td>
+            <td>Synchronizes lifecycle changes.</td>
+          </tr>
+
+          <tr>
+            <td>Instructor</td>
+            <td>PeopleSoft</td>
+            <td>Uses availability/workload constraints.</td>
+            <td>Transforms and distributes.</td>
+          </tr>
+
+          <tr>
+            <td>Student Registration</td>
+            <td>PeopleSoft</td>
+            <td>Consumes demand for optimization.</td>
+            <td>Routes registration information.</td>
+          </tr>
+
+          <tr>
+            <td>Curriculum / Program Requirements</td>
+            <td>CurricUNET / Watermark</td>
+            <td>Consumes scheduling constraints.</td>
+            <td>Routes authoritative curriculum data.</td>
+          </tr>
+
+          <tr>
+            <td>Room</td>
+            <td>Infosilem for academic scheduling planning</td>
+            <td>Manages academic scheduling attributes and assignments.</td>
+            <td>Synchronizes with operational consumers.</td>
+          </tr>
+
+          <tr>
+            <td>Meeting Pattern</td>
+            <td>Infosilem during scheduling planning</td>
+            <td>Optimization and scheduling.</td>
+            <td>Synchronizes published results.</td>
+          </tr>
+
+          <tr>
+            <td>Room Assignment</td>
+            <td>Infosilem during planning</td>
+            <td>Optimization output.</td>
+            <td>Publishes operational result.</td>
+          </tr>
+
+          <tr>
+            <td>Academic Schedule</td>
+            <td>Infosilem during planning; published operational schedule after publication</td>
+            <td>Creates optimized schedule.</td>
+            <td>Publishes and distributes.</td>
+          </tr>
+
+          <tr>
+            <td>Non-academic Event</td>
+            <td>25Live</td>
+            <td>Must respect shared-space constraints.</td>
+            <td>Coordinates exchange.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="panel warning">
+        <div class="panel-title">Important Boundary</div>
+
+        <p>
+          MuleSoft owns no business data. It owns integration mechanics:
+          transformation, routing, correlation, sequencing, delivery,
+          retry and reconciliation processing.
+        </p>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">Data Artifact</div>
+
+        <p>
+          <span class="artifact-id">DA-01 — Target Academic Scheduling Data Domains</span>
+          defines the business objects and their relationship to application
+          components. It provides the data ownership foundation for the ADR
+          and integration design.
+        </p>
+      </div>
+    </section>
+
+    <!-- INTEGRATION -->
+
+    <section id="integration">
+      <h2>6. Integration &amp; Synchronization Strategy</h2>
+
+      <p>
+        The architecture deliberately uses multiple integration mechanisms.
+        No single mechanism satisfies the scheduling lifecycle.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Mechanism</th>
+            <th>Primary Use</th>
+            <th>Rationale</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>API</td>
+            <td>Current-state queries and controlled updates.</td>
+            <td>Low-latency synchronous integration.</td>
+          </tr>
+
+          <tr>
+            <td>Message Queue</td>
+            <td>Asynchronous business-system updates.</td>
+            <td>Decoupling, buffering and reliable delivery.</td>
+          </tr>
+
+          <tr>
+            <td>Event Streaming</td>
+            <td>Schedule and operational change propagation.</td>
+            <td>Near-real-time downstream notification.</td>
+          </tr>
+
+          <tr>
+            <td>Batch ETL / Batch Interface</td>
+            <td>Large-volume initialization, reconciliation and optimization inputs/outputs.</td>
+            <td>Suitable for comprehensive datasets and solver processing.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>MuleSoft API Layer</h3>
+
+      <ul>
+        <li>Scheduling API</li>
+        <li>Room schedule API</li>
+        <li>Curriculum / program requirements access</li>
+        <li>Room/access schedule requests</li>
+      </ul>
+
+      <h3>MuleSoft Messaging Layer</h3>
+
+      <ul>
+        <li>Asynchronous scheduling messages to Infosilem.</li>
+        <li>Published schedule messages to downstream consumers.</li>
+        <li>Canvas section and schedule events.</li>
+        <li>LenelS2 room schedule messages.</li>
+        <li>Metasys occupancy schedule messages.</li>
+      </ul>
+
+      <h3>Infosilem Batch Optimization Interface</h3>
+
+      <p>
+        Infosilem requires comprehensive scheduling information to optimize
+        schedules across students, rooms, instructors, meeting patterns and
+        institutional constraints. Batch exchange therefore remains a
+        fundamental part of the architecture.
+      </p>
+
+      <div class="panel purple">
+        <div class="panel-title">The Optimized Synergistic Paradox</div>
+
+        <p>
+          The architecture must reconcile two apparently competing needs:
+          Infosilem requires a broad, comprehensive view of scheduling
+          constraints to optimize the institutional schedule, while downstream
+          systems require timely incremental updates.
+        </p>
+
+        <p>
+          This is the <strong>optimized synergistic paradox</strong>: the
+          solution requires both comprehensive batch optimization and
+          near-real-time incremental integration.
+        </p>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">Integration Artifact</div>
+
+        <p>
+          <span class="artifact-id">IA-01 — Target Integration Architecture</span>
+          defines the MuleSoft API layer, messaging layer and Infosilem batch
+          optimization interface.
+        </p>
+      </div>
+    </section>
+
+    <!-- EDGE CASES -->
+
+    <section id="edge">
+      <h2>7. Schedule Changes &amp; Edge Cases</h2>
+
+      <h3>7.1 Schedule Delta Management</h3>
+
+      <p>
+        Every material scheduling change must be identifiable as a delta rather
+        than requiring the entire schedule to be treated as changed.
+      </p>
+
+      <ol>
+        <li>Detect the source-system change.</li>
+        <li>Identify the affected schedule entity and version.</li>
+        <li>Correlate the change with the current scheduling lifecycle.</li>
+        <li>Determine the authoritative system for the affected data.</li>
+        <li>Validate downstream impacts.</li>
+        <li>Route the change to the appropriate business process.</li>
+        <li>Publish the approved result to affected consumers.</li>
+        <li>Record the transaction and reconciliation state.</li>
+      </ol>
+
+      <p>
+        MuleSoft performs detection, correlation, routing and delivery. It does
+        not independently decide which business outcome is correct.
+      </p>
+
+      <h3>7.2 Conflicting PeopleSoft and Infosilem Changes</h3>
+
+      <p>
+        A PeopleSoft change does not automatically win simply because
+        PeopleSoft is a major system of record. Authority depends on the data
+        element and lifecycle state.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Conflict</th>
+            <th>Resolution Principle</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Course name differs</td>
+            <td>PeopleSoft remains authoritative.</td>
+          </tr>
+
+          <tr>
+            <td>Program requirement differs</td>
+            <td>CurricUNET / Watermark remains authoritative.</td>
+          </tr>
+
+          <tr>
+            <td>Room assignment differs during optimization</td>
+            <td>Infosilem may be authoritative within the planning lifecycle.</td>
+          </tr>
+
+          <tr>
+            <td>Published schedule unexpectedly changes</td>
+            <td>Evaluate lifecycle state, ownership and whether re-validation or re-optimization is required.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>7.3 Live Registration During Scheduling</h3>
+
+      <p>
+        Registration changes can alter demand and therefore affect the
+        optimization problem.
+      </p>
+
+      <ol>
+        <li>PeopleSoft remains authoritative for registration.</li>
+        <li>Registration deltas are propagated through MuleSoft.</li>
+        <li>Infosilem receives updated demand information.</li>
+        <li>Material changes are assessed for scheduling impact.</li>
+        <li>Where required, the schedule is re-validated or re-optimized.</li>
+        <li>Approved schedule changes are published downstream.</li>
+      </ol>
+
+      <h3>7.4 Multi-Campus Faculty Travel</h3>
+
+      <p>
+        Faculty collective bargaining constraints require more than simply
+        checking whether an instructor is available at a particular time.
+        Scheduling must account for the feasibility of moving between
+        campuses.
+      </p>
+
+      <ul>
+        <li>Represent campus as a scheduling attribute.</li>
+        <li>Represent instructor teaching commitments by time and campus.</li>
+        <li>Apply minimum travel/transition time between campuses.</li>
+        <li>Prevent incompatible consecutive assignments.</li>
+        <li>Validate solver results against collective bargaining rules.</li>
+      </ul>
+
+      <h3>7.5 Specialized and Shared Spaces</h3>
+
+      <p>
+        Specialized-space requirements are represented as room attributes and
+        scheduling constraints rather than creating unnecessary standalone
+        business objects.
+      </p>
+
+      <ul>
+        <li>Equipment requirements.</li>
+        <li>Safety certifications.</li>
+        <li>Capacity.</li>
+        <li>Turnover buffers.</li>
+        <li>Shared-space availability.</li>
+        <li>Non-academic reservations.</li>
+      </ul>
+
+      <h3>7.6 Freeze and Publish Lifecycle</h3>
+
+      <p>
+        A controlled lifecycle is required to distinguish a working optimized
+        schedule from the published operational schedule.
+      </p>
+
+      <div class="model-box">
+        <div class="model">Draft Inputs
+      |
+      v
+Scheduling / Optimization
+      |
+      v
+Validation
+      |
+      v
+Approved Schedule
+      |
+      v
+Published Schedule
+      |
+      +----> PeopleSoft
+      +----> Canvas
+      +----> 25Live
+      +----> LenelS2
+      +----> Metasys</div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">Detailed Integration Artifact</div>
+
+        <p>
+          <span class="artifact-id">DR-01 — Schedule Delta &amp; Conflict Resolution</span>
+          captures the detailed integration relationships supporting schedule
+          changes, batch optimization and MuleSoft orchestration.
+        </p>
+      </div>
+    </section>
+
+    <!-- COLLABORATION -->
+
+    <section id="collaboration">
+      <h2>8. Stakeholder Collaboration &amp; Governance</h2>
+
+      <p>
+        The architecture must be constructed collaboratively because the
+        difficult decisions are institutional as well as technical.
+      </p>
+
+      <h3>Constructive Working Model</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Group</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Enterprise IT / Architecture</td>
+            <td>
+              Establish architecture principles, integration standards,
+              decision governance and traceability.
+            </td>
+          </tr>
+
+          <tr>
+            <td>DBAs / PeopleSoft Team</td>
+            <td>
+              Validate source data, ownership, performance and extraction
+              constraints.
+            </td>
+          </tr>
+
+          <tr>
+            <td>Middleware Developers</td>
+            <td>
+              Convert architecture decisions into APIs, messages,
+              transformations, routing and operational controls.
+            </td>
+          </tr>
+
+          <tr>
+            <td>Registrar / Academic Operations</td>
+            <td>
+              Establish authoritative scheduling policies and lifecycle decisions.
+            </td>
+          </tr>
+
+          <tr>
+            <td>Academic Schedulers</td>
+            <td>
+              Validate actual scheduling workflows, exceptions and usability.
+            </td>
+          </tr>
+
+          <tr>
+            <td>Deans / Department Chairs</td>
+            <td>
+              Resolve institutional priorities and validate policy impacts.
+            </td>
+          </tr>
+
+          <tr>
+            <td>Faculty Senate</td>
+            <td>
+              Validate academic policy, faculty constraints and governance implications.
+            </td>
+          </tr>
+
+          <tr>
+            <td>Facilities</td>
+            <td>
+              Validate room characteristics, shared-space constraints and operational use.
+            </td>
+          </tr>
+
+          <tr>
+            <td>Campus Security</td>
+            <td>
+              Validate room access automation and downstream operational timing.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Resolving Trade-offs</h3>
+
+      <p>
+        When stakeholders disagree, I would avoid resolving the issue through
+        authority or opinion. Instead, I would make the disagreement explicit
+        and convert it into a documented architectural decision.
+      </p>
+
+      <ol>
+        <li>Define the disputed business outcome.</li>
+        <li>Identify the data elements affected.</li>
+        <li>Identify existing policy or contractual constraints.</li>
+        <li>Identify the authoritative business owner.</li>
+        <li>Document the technical consequences of each option.</li>
+        <li>Test the options against institutional requirements.</li>
+        <li>Escalate only the unresolved business decision.</li>
+        <li>Record the final decision in an ADR.</li>
+        <li>Trace implementation work back to the decision.</li>
+      </ol>
+
+      <div class="panel warning">
+        <div class="panel-title">Deadlock Navigation</div>
+
+        <p>
+          If departmental resistance threatens architectural integrity, I would
+          separate legitimate local requirements from requests to bypass
+          enterprise governance. Local exceptions should be documented,
+          bounded and evaluated for enterprise impact rather than silently
+          becoming architectural precedent.
+        </p>
+      </div>
+
+      <p>
+        This approach allows stakeholders to disagree constructively while
+        ensuring that the architecture remains traceable to requirements,
+        policy and explicitly approved decisions.
+      </p>
+    </section>
+
+    <!-- GAPS -->
+
+    <section id="gaps">
+      <h2>9. Gap Analysis &amp; Implementation Strategy</h2>
+
+      <p>
+        The gap analysis converts the difference between baseline and target
+        architecture into actionable implementation stages.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Gap</th>
+            <th>Description</th>
+            <th>Resolution</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td class="artifact-id">G01</td>
+            <td>Data &amp; Ownership Gap</td>
+            <td>
+              Establish ownership, mastery boundaries, lifecycle and
+              synchronization rules.
+            </td>
+          </tr>
+
+          <tr>
+            <td class="artifact-id">G02</td>
+            <td>Integration Gap</td>
+            <td>
+              Implement APIs, messaging, batch interfaces, transformations and
+              orchestration.
+            </td>
+          </tr>
+
+          <tr>
+            <td class="artifact-id">G03</td>
+            <td>Validation &amp; Readiness Gap</td>
+            <td>
+              Perform integration, optimization, security, performance,
+              end-to-end, pilot and UAT testing.
+            </td>
+          </tr>
+
+          <tr>
+            <td class="artifact-id">G04</td>
+            <td>Production Readiness Gap</td>
+            <td>
+              Establish monitoring, support, training, deployment, cutover and
+              rollback capability.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="panel">
+        <div class="panel-title">Roadmap Artifact</div>
+
+        <p>
+          <span class="artifact-id">RM-01 — ASSO Implementation Roadmap</span>
+          organizes the transition through Baseline, Data Foundation,
+          Integrated Solution, Pilot and Production plateaus.
+        </p>
+      </div>
+    </section>
+
+    <!-- IMPLEMENTATION -->
+
+    <section id="implementation">
+      <h2>10. Implementation &amp; Migration</h2>
+
+      <h3>Plateau 1 — Baseline</h3>
+
+      <ul>
+        <li>Confirm application inventory.</li>
+        <li>Confirm current interfaces.</li>
+        <li>Confirm data ownership.</li>
+        <li>Validate requirements and constraints.</li>
+      </ul>
+
+      <h3>Plateau 2 — Data Foundation</h3>
+
+      <ul>
+        <li>Normalize source data.</li>
+        <li>Resolve orphaned instructor identifiers.</li>
+        <li>Verify room capacities.</li>
+        <li>Normalize room feature tags.</li>
+        <li>Establish ownership and lifecycle rules.</li>
+      </ul>
+
+      <h3>Plateau 3 — Integrated Solution</h3>
+
+      <ul>
+        <li>Implement MuleSoft APIs.</li>
+        <li>Implement messaging.</li>
+        <li>Implement Infosilem batch interfaces.</li>
+        <li>Implement transformation and mappings.</li>
+        <li>Implement downstream integrations.</li>
+        <li>Implement delta detection and correlation.</li>
+      </ul>
+
+      <h3>Plateau 4 — Pilot</h3>
+
+      <ul>
+        <li>Run historical schedule replay.</li>
+        <li>Validate solver behavior.</li>
+        <li>Validate student conflicts.</li>
+        <li>Validate room utilization.</li>
+        <li>Validate faculty constraints.</li>
+        <li>Perform scheduler UAT.</li>
+      </ul>
+
+      <h3>Plateau 5 — Production</h3>
+
+      <ul>
+        <li>Complete operational readiness.</li>
+        <li>Train support and scheduling teams.</li>
+        <li>Establish monitoring.</li>
+        <li>Execute controlled cutover.</li>
+        <li>Maintain rollback capability.</li>
+        <li>Transition to operational governance.</li>
+      </ul>
+    </section>
+
+    <!-- VALIDATION -->
+
+    <section id="validation">
+      <h2>11. Validation &amp; Pilot</h2>
+
+      <p>
+        Validation must demonstrate that the target architecture works against
+        real institutional requirements rather than only proving that messages
+        can technically move between systems.
+      </p>
+
+      <h3>Validation Layers</h3>
+
+      <ol>
+        <li>
+          <strong>Data validation</strong> — verify ownership, completeness,
+          identifiers, room data and mappings.
+        </li>
+
+        <li>
+          <strong>Integration testing</strong> — verify APIs, messaging,
+          transformation, routing and error handling.
+        </li>
+
+        <li>
+          <strong>Optimization validation</strong> — verify that Infosilem
+          respects institutional constraints.
+        </li>
+
+        <li>
+          <strong>Performance testing</strong> — validate expected scheduling
+          and integration volumes and latency.
+        </li>
+
+        <li>
+          <strong>End-to-end testing</strong> — trace a change from source
+          system through Infosilem and downstream consumers.
+        </li>
+
+        <li>
+          <strong>User acceptance testing</strong> — validate actual scheduler
+          and Registrar workflows.
+        </li>
+
+        <li>
+          <strong>Pilot validation</strong> — compare generated schedules with
+          historical institutional outcomes.
+        </li>
+      </ol>
+
+      <div class="panel success">
+        <div class="panel-title">Historical Pilot Evidence</div>
+
+        <p>
+          The historical dry-run using the College of Engineering and College
+          of Arts and Sciences demonstrated that the solver resolved
+          approximately 95% of historical student schedule conflicts and
+          reduced required room hours by approximately 16%.
+        </p>
+
+        <p>
+          These results should be treated as pilot validation evidence and
+          followed by broader institutional testing before production
+          acceptance.
+        </p>
+      </div>
+
+      <h3>Acceptance Questions</h3>
+
+      <ul>
+        <li>Are ownership rules understood and accepted?</li>
+        <li>Are schedule changes correctly detected and correlated?</li>
+        <li>Are conflicts resolved according to lifecycle and ownership rules?</li>
+        <li>Are prime-time constraints enforced?</li>
+        <li>Are specialized spaces protected?</li>
+        <li>Are faculty travel constraints respected?</li>
+        <li>Are downstream updates sufficiently timely?</li>
+        <li>Can failed transactions be reconciled?</li>
+      </ul>
+    </section>
+
+    <!-- PRODUCTION -->
+
+    <section id="production">
+      <h2>12. Production Readiness</h2>
+
+      <p>
+        Production readiness is treated as an architecture concern rather than
+        solely an operational handoff.
+      </p>
+
+      <div class="two-column">
+
+        <div class="card">
+          <h3>Technical Readiness</h3>
+          <ul>
+            <li>API monitoring</li>
+            <li>Message monitoring</li>
+            <li>Batch monitoring</li>
+            <li>Error handling</li>
+            <li>Retry handling</li>
+            <li>Correlation identifiers</li>
+            <li>Reconciliation procedures</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Operational Readiness</h3>
+          <ul>
+            <li>Support procedures</li>
+            <li>Runbooks</li>
+            <li>Training</li>
+            <li>Cutover plan</li>
+            <li>Rollback plan</li>
+            <li>Incident escalation</li>
+            <li>Business ownership</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <h3>Architecture Change Management</h3>
+
+      <p>
+        Once production begins, changes to ownership, synchronization,
+        interfaces or scheduling policy must be evaluated through architecture
+        governance rather than implemented independently by individual teams.
+      </p>
+    </section>
+
+    <!-- ARTIFACTS -->
+
+    <section id="artifacts">
+      <h2>13. Architecture Artifacts</h2>
+
+      <p>
+        Sparx Enterprise Architect is the authoritative architecture modeling
+        repository. The artifacts are deliberately connected so that
+        requirements, stakeholders, architecture decisions and implementation
+        work remain traceable.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Artifact</th>
+            <th>Audience</th>
+            <th>Technical Purpose</th>
+            <th>Governance / Risk Value</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td class="artifact-id">BL-01</td>
+            <td>Enterprise Architecture, IT, application teams</td>
+            <td>Establish baseline systems and information flows.</td>
+            <td>Prevents target architecture from being based on assumptions.</td>
+          </tr>
+
+          <tr>
+            <td class="artifact-id">BA-01</td>
+            <td>Architecture and institutional leadership</td>
+            <td>Define business capabilities required by ASSO.</td>
+            <td>Connects technology investment to business capability.</td>
+          </tr>
+
+          <tr>
+            <td class="artifact-id">BA-02</td>
+            <td>Architecture, leadership, project governance</td>
+            <td>Identify stakeholders and influence relationships.</td>
+            <td>Reduces stakeholder and decision risk.</td>
+          </tr>
+
+          <tr>
+            <td class="artifact-id">RT-01</td>
+            <td>Architecture, business stakeholders, QA</td>
+            <td>Trace requirements to goals and architecture elements.</td>
+            <td>Provides measurable requirements coverage.</td>
+          </tr>
+
+          <tr>
+            <td class="artifact-id">TA-01</td>
+            <td>Enterprise Architecture, application teams</td>
+            <td>Define target application relationships.</td>
+            <td>Provides the high-level implementation direction.</td>
+          </tr>
+
+          <tr>
+            <td class="artifact-id">DA-01</td>
+            <td>Data architects, application owners, DBAs</td>
+            <td>Define scheduling data domains and ownership.</td>
+            <td>Prevents ownership ambiguity and synchronization conflicts.</td>
+          </tr>
+
+          <tr>
+            <td class="artifact-id">IA-01</td>
+            <td>Middleware developers, integration architects</td>
+            <td>Define APIs, messaging and batch integration mechanisms.</td>
+            <td>Directs engineering implementation.</td>
+          </tr>
+
+          <tr>
+            <td class="artifact-id">DR-01</td>
+            <td>Integration developers, application teams</td>
+            <td>Define detailed schedule-change and conflict mechanics.</td>
+            <td>Reduces ambiguity in difficult live-change scenarios.</td>
+          </tr>
+
+          <tr>
+            <td class="artifact-id">ADR-01</td>
+            <td>Architecture governance, Registrar, system owners</td>
+            <td>Codify ownership and bidirectional synchronization decisions.</td>
+            <td>Provides formal decision authority and prevents recurring debate.</td>
+          </tr>
+
+          <tr>
+            <td class="artifact-id">RM-01</td>
+            <td>Program management, architecture, delivery teams</td>
+            <td>Define transition plateaus and architecture gaps.</td>
+            <td>Tracks implementation progress and readiness.</td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <div class="panel">
+        <div class="panel-title">Artifact Governance</div>
+
+        <p>
+          These artifacts are maintained as living architecture assets.
+          Changes to requirements, ownership, interfaces or major implementation
+          decisions are reflected in the appropriate model or ADR and traced
+          through the delivery lifecycle.
+        </p>
+      </div>
+    </section>
+
+    <!-- ADR -->
+
+    <section id="adr">
+      <h2>14. Architecture Decision Record</h2>
+
+      <h3>ADR-01 — Academic Schedule Data Ownership &amp; Bidirectional Synchronization</h3>
+
+      <span class="decision-status">Status: Accepted</span>
+
+      <h4>Decision Summary</h4>
+
+      <p>
+        PeopleSoft Campus Solutions remains the authoritative system for core
+        academic and student data, including course definitions, active term
+        sections, instructor workload records and student registrations.
+      </p>
+
+      <p>
+        CurricUNET / Watermark remains authoritative for curriculum, program
+        requirements, requisites and approved contact-hour structures.
+      </p>
+
+      <p>
+        Infosilem Academic is authoritative for scheduling optimization outputs
+        within the planning lifecycle, including meeting patterns, room
+        assignments and the optimized academic schedule. Once a schedule is
+        formally published, the published schedule becomes the operational
+        schedule distributed to downstream consumers.
+      </p>
+
+      <p>
+        MuleSoft Anypoint is the enterprise integration and orchestration layer.
+        MuleSoft owns no business data. It manages synchronization,
+        transformation, routing, validation, correlation, sequencing,
+        delivery, retry and reconciliation mechanics.
+      </p>
+
+      <h4>Why Bidirectional Synchronization Is Required</h4>
+
+      <p>
+        The scheduling lifecycle requires information to move in both
+        directions. PeopleSoft provides authoritative academic inputs and may
+        receive approved schedule changes. Infosilem consumes comprehensive
+        scheduling inputs and produces optimized scheduling results.
+      </p>
+
+      <p>
+        A unidirectional model would therefore fail to represent the actual
+        institutional lifecycle.
+      </p>
+
+      <h4>Ownership Rules</h4>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Scenario</th>
+            <th>Authority</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Course definition changes</td>
+            <td>PeopleSoft</td>
+            <td>Propagate authoritative change to affected consumers.</td>
+          </tr>
+
+          <tr>
+            <td>Program requirement changes</td>
+            <td>CurricUNET / Watermark</td>
+            <td>Propagate authoritative curriculum change.</td>
+          </tr>
+
+          <tr>
+            <td>Instructor workload data</td>
+            <td>PeopleSoft</td>
+            <td>Use authoritative workload information for scheduling.</td>
+          </tr>
+
+          <tr>
+            <td>Student registration</td>
+            <td>PeopleSoft</td>
+            <td>Use registration changes to update scheduling demand.</td>
+          </tr>
+
+          <tr>
+            <td>Room assignment during optimization</td>
+            <td>Infosilem</td>
+            <td>Allow optimization engine to determine planning assignment.</td>
+          </tr>
+
+          <tr>
+            <td>Meeting pattern during optimization</td>
+            <td>Infosilem</td>
+            <td>Allow optimization engine to determine planning result.</td>
+          </tr>
+
+          <tr>
+            <td>Published schedule</td>
+            <td>Approved scheduling lifecycle</td>
+            <td>Distribute controlled published result to operational consumers.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Conflict Resolution</h4>
+
+      <p>
+        Conflict resolution is based on <strong>data ownership and lifecycle
+        state</strong>, not on a blanket rule that PeopleSoft always wins.
+      </p>
+
+      <p>
+        For example, a course name conflict is resolved in favor of PeopleSoft,
+        while a room assignment produced by the Infosilem optimization process
+        may be authoritative within the planning lifecycle.
+      </p>
+
+      <p>
+        When an unexpected change occurs to a published schedule, the
+        integration process must evaluate the lifecycle state, ownership and
+        impact before accepting, rejecting or re-optimizing the change.
+      </p>
+
+      <h4>MuleSoft Responsibilities</h4>
+
+      <ul>
+        <li>Detect relevant deltas.</li>
+        <li>Validate message structure and required data.</li>
+        <li>Transform source representations.</li>
+        <li>Route information to the correct system.</li>
+        <li>Correlate related changes.</li>
+        <li>Maintain sequencing where required.</li>
+        <li>Retry failed deliveries.</li>
+        <li>Detect discrepancies.</li>
+        <li>Maintain reconciliation mechanics.</li>
+        <li>Provide operational monitoring and traceability.</li>
+      </ul>
+
+      <div class="panel red">
+        <div class="panel-title">Business Decision Boundary</div>
+
+        <p>
+          MuleSoft does not independently decide the business outcome of a
+          conflict. The appropriate business process and authoritative system
+          determine the valid result; MuleSoft distributes and records that
+          result.
+        </p>
+      </div>
+
+      <h4>Synchronization Approach</h4>
+
+      <ol>
+        <li>
+          Use APIs for synchronous retrieval and controlled updates where
+          low-latency access is required.
+        </li>
+
+        <li>
+          Use asynchronous messaging for reliable schedule-change propagation.
+        </li>
+
+        <li>
+          Use event-driven integration for downstream near-real-time consumers.
+        </li>
+
+        <li>
+          Use batch interfaces for comprehensive Infosilem optimization
+          exchanges and large-scale reconciliation.
+        </li>
+
+        <li>
+          Apply correlation identifiers and version information to material
+          schedule changes.
+        </li>
+
+        <li>
+          Retain failed or conflicting transactions for reconciliation rather
+          than silently discarding them.
+        </li>
+      </ol>
+
+      <h4>The Optimized Synergistic Paradox</h4>
+
+      <p>
+        The decision also addresses the
+        <strong>optimized synergistic paradox</strong>: Infosilem requires a
+        broad, optimized view of scheduling constraints, while downstream
+        operational systems may require timely incremental updates.
+      </p>
+
+      <p>
+        The <strong>optimized synergistic paradox</strong> is therefore
+        addressed by combining comprehensive batch optimization with API- and
+        event-driven synchronization rather than forcing a single integration
+        pattern.
+      </p>
+
+      <h4>Rationale</h4>
+
+      <p>
+        The decision preserves institutional ownership while allowing Infosilem
+        to perform the optimization function for which it was introduced.
+        It also prevents MuleSoft from becoming an accidental system of
+        record.
+      </p>
+
+      <p>
+        The model recognizes that data authority can vary by domain and
+        lifecycle stage. This is more accurate than assigning universal
+        authority to a single application.
+      </p>
+
+      <h4>Consequences</h4>
+
+      <p><strong>Positive:</strong></p>
+
+      <ul>
+        <li>Clear ownership boundaries.</li>
+        <li>Controlled bidirectional synchronization.</li>
+        <li>Support for both batch and near-real-time integration.</li>
+        <li>Reduced ambiguity during scheduling conflicts.</li>
+        <li>Better traceability of schedule changes.</li>
+        <li>Clear separation between business decisions and integration mechanics.</li>
+      </ul>
+
+      <p><strong>Negative / Trade-offs:</strong></p>
+
+      <ul>
+        <li>Synchronization logic is more complex than one-way integration.</li>
+        <li>Lifecycle states must be explicitly defined.</li>
+        <li>Reconciliation requires operational processes.</li>
+        <li>Stakeholders must agree on ownership boundaries.</li>
+        <li>Some changes may require re-validation or re-optimization.</li>
+      </ul>
+
+      <h4>Related Architecture</h4>
+
+      <ul>
+        <li><span class="artifact-id">DA-01</span> — Data ownership and scheduling domains.</li>
+        <li><span class="artifact-id">IA-01</span> — Integration mechanisms.</li>
+        <li><span class="artifact-id">DR-01</span> — Detailed schedule delta and conflict mechanics.</li>
+        <li><span class="artifact-id">RT-01</span> — Requirements traceability.</li>
+      </ul>
+    </section>
+
+    <!-- SUCCESS -->
+
+    <section id="success">
+      <h2>15. Success Measures</h2>
+
+      <p>
+        The architecture is successful when the institution can operate the
+        scheduling lifecycle with clear ownership, predictable integration and
+        measurable schedule quality.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Measure</th>
+            <th>Evidence</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Data ownership</td>
+            <td>Every critical scheduling domain has an accepted authoritative owner.</td>
+          </tr>
+
+          <tr>
+            <td>Synchronization</td>
+            <td>Material deltas are detected, correlated and delivered reliably.</td>
+          </tr>
+
+          <tr>
+            <td>Conflict management</td>
+            <td>Conflicts follow documented ownership and lifecycle rules.</td>
+          </tr>
+
+          <tr>
+            <td>Optimization</td>
+            <td>Infosilem produces schedules that satisfy institutional constraints.</td>
+          </tr>
+
+          <tr>
+            <td>Space utilization</td>
+            <td>Room utilization and required room hours demonstrate measurable improvement.</td>
+          </tr>
+
+          <tr>
+            <td>Student outcomes</td>
+            <td>Schedule conflict reduction is demonstrated during pilot and production validation.</td>
+          </tr>
+
+          <tr>
+            <td>Faculty constraints</td>
+            <td>Workload, availability and campus travel constraints are respected.</td>
+          </tr>
+
+          <tr>
+            <td>Downstream latency</td>
+            <td>Published changes reach operational consumers within agreed service objectives.</td>
+          </tr>
+
+          <tr>
+            <td>Operational readiness</td>
+            <td>Monitoring, reconciliation, support, rollback and governance are operational.</td>
+          </tr>
+
+          <tr>
+            <td>Architecture governance</td>
+            <td>Changes are traceable to requirements, decisions and approved architecture.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="panel success">
+        <div class="panel-title">End State</div>
+
+        <p>
+          MSU has a governed scheduling architecture in which PeopleSoft,
+          CurricUNET, Infosilem and downstream systems retain clearly defined
+          responsibilities; MuleSoft provides controlled enterprise
+          integration; scheduling conflicts have explicit resolution rules;
+          and the institution can operate comprehensive optimization together
+          with timely downstream schedule propagation.
+        </p>
+      </div>
+    </section>
+
+    <div class="footer">
+      ASSO Architecture Approach &amp; Execution · Metropolitan State University
+    </div>
+
+  </main>
+</div>
 
 </body>
 </html>
