@@ -3,27 +3,1559 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>U of A Architecture</title>
+
+  <title>University of Alberta Education Architecture</title>
+
+  <style>
+    :root {
+      --ua-red: #d32f2f;
+      --ua-dark: #172b4d;
+      --text: #253858;
+      --muted: #5e6c84;
+      --border: #dfe1e6;
+      --background: #f4f5f7;
+      --panel: #ffffff;
+      --soft: #f8f9fa;
+      --blue: #0052cc;
+      --green: #00875a;
+      --orange: #ff991f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .topbar {
+      background: var(--ua-red);
+      color: white;
+      padding: 16px 28px;
+    }
+
+    .topbar-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .brand-subtitle {
+      font-size: 13px;
+      opacity: 0.9;
+      margin-top: 2px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 30px;
+      padding: 30px 24px 70px;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 20px;
+      align-self: start;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 18px;
+    }
+
+    .sidebar-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+      letter-spacing: 0.04em;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 7px 8px;
+      border-radius: 4px;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .sidebar a:hover {
+      background: #ebecf0;
+      text-decoration: none;
+    }
+
+    .content {
+      min-width: 0;
+    }
+
+    .hero {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 42px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: 38px;
+      line-height: 1.2;
+      color: var(--ua-dark);
+    }
+
+    .hero .subtitle {
+      font-size: 19px;
+      color: var(--muted);
+      max-width: 900px;
+      margin-bottom: 22px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #deebff;
+      color: #0747a6;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    section {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 32px 36px;
+      margin-bottom: 24px;
+      scroll-margin-top: 20px;
+    }
+
+    h2 {
+      margin: 0 0 22px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+      color: var(--ua-dark);
+      font-size: 27px;
+    }
+
+    h3 {
+      color: #344563;
+      margin-top: 28px;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    h4 {
+      color: #344563;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin: 10px 0 16px;
+    }
+
+    ul,
+    ol {
+      padding-left: 25px;
+    }
+
+    li {
+      margin-bottom: 7px;
+    }
+
+    .panel {
+      border-left: 4px solid var(--blue);
+      background: #f4f5f7;
+      padding: 17px 20px;
+      margin: 20px 0;
+    }
+
+    .panel.success {
+      border-left-color: var(--green);
+      background: #e3fcef;
+    }
+
+    .panel.warning {
+      border-left-color: var(--orange);
+      background: #fffae6;
+    }
+
+    .panel.red {
+      border-left-color: var(--ua-red);
+      background: #ffebe6;
+    }
+
+    .panel-title {
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    .architecture-principle {
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--border);
+      padding: 11px 13px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--soft);
+      color: var(--ua-dark);
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) td {
+      background: #fafbfc;
+    }
+
+    .artifact-id {
+      font-family: Consolas, "Courier New", monospace;
+      font-weight: 700;
+      color: #0747a6;
+    }
+
+    .model-box {
+      background: #f8f9fa;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 20px;
+      margin: 20px 0;
+      overflow-x: auto;
+    }
+
+    .model {
+      font-family: Consolas, "Courier New", monospace;
+      white-space: pre;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 20px;
+      background: #fff;
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 4px 9px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      background: #e3fcef;
+      color: #006644;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      padding: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+
+      .hero,
+      section {
+        padding: 25px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar {
+        padding: 14px 18px;
+      }
+
+      .container {
+        padding: 18px 12px 50px;
+      }
+
+      .hero h1 {
+        font-size: 29px;
+      }
+
+      .hero .subtitle {
+        font-size: 17px;
+      }
+
+      section {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 23px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <h1>University of Alberta Education Architecture</h1>
 
-  <h2>Architecture Test Page</h2>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div>
+        <div class="brand">University of Alberta</div>
+        <div class="brand-subtitle">Education Enterprise Architecture</div>
+      </div>
+      <div>Architecture Case Study</div>
+    </div>
+  </header>
 
-  <p>
-    This is a standalone HTML page for the University of Alberta
-    education architecture case study.
-  </p>
+  <div class="container">
 
-  <p>
-    If you can see this page, the static HTML deployment is working.
-  </p>
+    <nav class="sidebar">
+      <div class="sidebar-title">Contents</div>
 
-  <hr>
+      <a href="#overview">Overview</a>
+      <a href="#vision">1. Architecture Vision</a>
+      <a href="#scope">2. Architecture Scope</a>
+      <a href="#baseline">3. Baseline Architecture</a>
+      <a href="#canonical">4. Canonical Data Model</a>
+      <a href="#relationships">5. Core Relationships</a>
+      <a href="#ownership">6. Data Ownership</a>
+      <a href="#integration">7. Integration Architecture</a>
+      <a href="#events">8. Event Architecture</a>
+      <a href="#api">9. API Architecture</a>
+      <a href="#ontology">10. Ontology &amp; Semantics</a>
+      <a href="#governance">11. Architecture Governance</a>
+      <a href="#artifacts">12. Architecture Artifacts</a>
+      <a href="#implementation">13. Implementation Roadmap</a>
+      <a href="#validation">14. Validation</a>
+      <a href="#decisions">15. Architecture Decisions</a>
+      <a href="#success">16. Success Measures</a>
+    </nav>
 
-  <p>
-    Canonical Education Model · Enterprise Architecture · CloudEvents
-  </p>
+    <main class="content">
+
+      <div class="hero">
+        <h1>University of Alberta Education Architecture</h1>
+
+        <div class="subtitle">
+          Enterprise Education Middleware &amp; Canonical Data Model
+        </div>
+
+        <div class="tags">
+          <span class="tag">University of Alberta</span>
+          <span class="tag">Enterprise Architecture</span>
+          <span class="tag">Canonical Model</span>
+          <span class="tag">Education Middleware</span>
+          <span class="tag">CloudEvents</span>
+          <span class="tag">Sparx Enterprise Architect</span>
+          <span class="tag">Ontology</span>
+        </div>
+      </div>
+
+      <!-- OVERVIEW -->
+
+      <section id="overview">
+        <h2>Overview</h2>
+
+        <p>
+          This architecture establishes a university-wide canonical education
+          model and integration architecture for connecting academic,
+          administrative and learning systems.
+        </p>
+
+        <p>
+          The purpose of the canonical model is to provide a consistent
+          enterprise representation of education concepts without requiring
+          individual source systems to adopt the same internal data model.
+        </p>
+
+        <div class="panel success">
+          <div class="panel-title">Architecture Principle</div>
+          <div class="architecture-principle">
+            Systems own their operational data; the canonical model owns
+            enterprise meaning; middleware owns integration mechanics.
+          </div>
+        </div>
+
+        <p>
+          The architecture therefore separates three concerns:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Business systems</strong> remain authoritative for the
+            operational information they create and maintain.
+          </li>
+          <li>
+            <strong>Canonical education concepts</strong> provide a common
+            semantic representation across systems.
+          </li>
+          <li>
+            <strong>Integration middleware</strong> performs transformation,
+            routing, orchestration, validation and delivery.
+          </li>
+        </ul>
+
+        <p>
+          CloudEvents is used where event-driven integration is appropriate.
+          CloudEvents defines the event envelope and contextual metadata;
+          it does not replace the education canonical model.
+        </p>
+      </section>
+
+      <!-- VISION -->
+
+      <section id="vision">
+        <h2>1. Architecture Vision</h2>
+
+        <p>
+          The architecture vision is to establish an education integration
+          foundation that allows university systems to exchange information
+          using stable, shared business semantics.
+        </p>
+
+        <h3>Business Objectives</h3>
+
+        <ul>
+          <li>Reduce point-to-point integration between education systems.</li>
+          <li>Establish consistent definitions for core education concepts.</li>
+          <li>Improve interoperability between SIS, LMS and supporting systems.</li>
+          <li>Provide a reusable enterprise integration model.</li>
+          <li>Support both API-based and event-driven integration.</li>
+          <li>Allow source systems to evolve without forcing consumers to understand every source-specific model.</li>
+          <li>Provide a foundation for future semantic and analytical capabilities.</li>
+        </ul>
+
+        <h3>Architecture Outcomes</h3>
+
+        <div class="two-column">
+          <div class="card">
+            <h3>Common Semantics</h3>
+            <p>
+              Education concepts such as Person, Student, Employee, Course,
+              Course Section, Application, Admission and Enrollment have
+              consistent enterprise meanings.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Decoupled Integration</h3>
+            <p>
+              Consumers interact with canonical representations instead of
+              requiring direct knowledge of every source-system schema.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Event-Driven Capability</h3>
+            <p>
+              Changes can be propagated through events while preserving
+              business semantics and contextual information.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Enterprise Governance</h3>
+            <p>
+              Canonical concepts, mappings and integration contracts become
+              governed architecture assets.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCOPE -->
+
+      <section id="scope">
+        <h2>2. Architecture Scope</h2>
+
+        <p>
+          The initial scope covers the core education lifecycle and the
+          integration concepts required to connect university systems.
+        </p>
+
+        <h3>In Scope</h3>
+
+        <ul>
+          <li>Person and identity relationships.</li>
+          <li>Student and employee representations.</li>
+          <li>Academic programs and requirements.</li>
+          <li>Courses and course sections.</li>
+          <li>Admissions and applications.</li>
+          <li>Enrollment and registration.</li>
+          <li>Instructor and teaching relationships.</li>
+          <li>Canonical identifiers.</li>
+          <li>Source-system mappings.</li>
+          <li>API and event integration patterns.</li>
+          <li>CloudEvents event envelopes.</li>
+          <li>Architecture governance.</li>
+          <li>Future ontology and semantic-model alignment.</li>
+        </ul>
+
+        <h3>Out of Scope</h3>
+
+        <ul>
+          <li>Replacing the university SIS.</li>
+          <li>Replacing the LMS.</li>
+          <li>Creating a single physical enterprise database for all education data.</li>
+          <li>Moving operational ownership from source systems into middleware.</li>
+          <li>Using the canonical model as a substitute for operational application schemas.</li>
+        </ul>
+      </section>
+
+      <!-- BASELINE -->
+
+      <section id="baseline">
+        <h2>3. Baseline Architecture</h2>
+
+        <p>
+          The baseline architecture recognizes that university information is
+          distributed across multiple applications, each with its own
+          operational data model and business responsibilities.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>System</th>
+              <th>Primary Responsibility</th>
+              <th>Integration Consideration</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>PeopleSoft</td>
+              <td>
+                Student, employee, academic and administrative records.
+              </td>
+              <td>
+                Existing enterprise source for many core institutional records.
+              </td>
+            </tr>
+
+            <tr>
+              <td>Learning Management System</td>
+              <td>
+                Course delivery, learning activities and course shells.
+              </td>
+              <td>
+                Requires alignment between academic sections and learning objects.
+              </td>
+            </tr>
+
+            <tr>
+              <td>Admissions Systems</td>
+              <td>
+                Applications, admissions and applicant lifecycle.
+              </td>
+              <td>
+                Applicant information eventually participates in the student lifecycle.
+              </td>
+            </tr>
+
+            <tr>
+              <td>Identity Services</td>
+              <td>
+                Identity, authentication and enterprise identifiers.
+              </td>
+              <td>
+                Provides identity context but does not become the owner of academic information.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="panel warning">
+          <div class="panel-title">Baseline Observation</div>
+          <p>
+            The primary architectural problem is not simply different
+            databases. The larger problem is that the same business concept
+            can be represented differently by different applications.
+          </p>
+        </div>
+      </section>
+
+      <!-- CANONICAL -->
+
+      <section id="canonical">
+        <h2>4. Canonical Data Model</h2>
+
+        <p>
+          The canonical model provides a shared enterprise vocabulary for
+          education information.
+        </p>
+
+        <p>
+          It is deliberately focused on stable business concepts rather than
+          reproducing every attribute or implementation detail from a source
+          system.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Domain</th>
+              <th>Canonical Concepts</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Identity</td>
+              <td>Person, Identifier</td>
+            </tr>
+
+            <tr>
+              <td>Student</td>
+              <td>Student, Enrollment, Student Registration</td>
+            </tr>
+
+            <tr>
+              <td>Employee</td>
+              <td>Employee, Instructor</td>
+            </tr>
+
+            <tr>
+              <td>Curriculum</td>
+              <td>Program, Course, Course Section, Program Requirement</td>
+            </tr>
+
+            <tr>
+              <td>Admissions</td>
+              <td>Application, Admission</td>
+            </tr>
+
+            <tr>
+              <td>Academic Activity</td>
+              <td>Enrollment, Course Section, Meeting Pattern</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="model-box">
+          <div class="model">Person
+  |
+  +-- Identifier
+  |
+  +-- Student
+  |     |
+  |     +-- Enrollment
+  |           |
+  |           +-- Course Section
+  |
+  +-- Employee
+        |
+        +-- Instructor
+              |
+              +-- Course Section
+
+Program
+  |
+  +-- Program Requirement
+
+Course
+  |
+  +-- Course Section
+
+Application
+  |
+  +-- Admission</div>
+        </div>
+      </section>
+
+      <!-- RELATIONSHIPS -->
+
+      <section id="relationships">
+        <h2>5. Core Relationships</h2>
+
+        <p>
+          Relationships are part of the canonical semantic model. They
+          describe how the enterprise understands the relationships between
+          education concepts.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Source</th>
+              <th>Relationship</th>
+              <th>Target</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Person</td>
+              <td>has identifier</td>
+              <td>Identifier</td>
+            </tr>
+
+            <tr>
+              <td>Person</td>
+              <td>may be</td>
+              <td>Student</td>
+            </tr>
+
+            <tr>
+              <td>Person</td>
+              <td>may be</td>
+              <td>Employee</td>
+            </tr>
+
+            <tr>
+              <td>Student</td>
+              <td>has enrollment</td>
+              <td>Enrollment</td>
+            </tr>
+
+            <tr>
+              <td>Enrollment</td>
+              <td>references</td>
+              <td>Course Section</td>
+            </tr>
+
+            <tr>
+              <td>Instructor</td>
+              <td>teaches</td>
+              <td>Course Section</td>
+            </tr>
+
+            <tr>
+              <td>Course</td>
+              <td>has section</td>
+              <td>Course Section</td>
+            </tr>
+
+            <tr>
+              <td>Application</td>
+              <td>submits</td>
+              <td>Admission</td>
+            </tr>
+
+            <tr>
+              <td>Program</td>
+              <td>defines requirements for</td>
+              <td>Student</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="panel">
+          <div class="panel-title">Modeling Note</div>
+          <p>
+            Relationships should be modeled according to their business
+            meaning rather than simply mirroring foreign-key relationships in
+            a particular application database.
+          </p>
+        </div>
+      </section>
+
+      <!-- OWNERSHIP -->
+
+      <section id="ownership">
+        <h2>6. Data Ownership</h2>
+
+        <p>
+          The canonical model does not mean that the canonical layer becomes
+          the system of record for every concept.
+        </p>
+
+        <p>
+          Ownership remains with the application or business domain
+          responsible for maintaining the authoritative operational state.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Concept</th>
+              <th>Typical Authority</th>
+              <th>Canonical Role</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Person</td>
+              <td>Enterprise identity / institutional system</td>
+              <td>Shared representation</td>
+            </tr>
+
+            <tr>
+              <td>Student</td>
+              <td>Student information system</td>
+              <td>Canonical student representation</td>
+            </tr>
+
+            <tr>
+              <td>Employee</td>
+              <td>HR / institutional system</td>
+              <td>Canonical employee representation</td>
+            </tr>
+
+            <tr>
+              <td>Course</td>
+              <td>Academic / curriculum system</td>
+              <td>Canonical academic course representation</td>
+            </tr>
+
+            <tr>
+              <td>Course Section</td>
+              <td>Student information system</td>
+              <td>Canonical scheduled offering representation</td>
+            </tr>
+
+            <tr>
+              <td>Program Requirement</td>
+              <td>Curriculum / academic governance system</td>
+              <td>Canonical requirement representation</td>
+            </tr>
+
+            <tr>
+              <td>Application</td>
+              <td>Admissions system</td>
+              <td>Canonical application representation</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="panel success">
+          <div class="panel-title">Key Principle</div>
+          <p>
+            Canonicalization standardizes meaning; it does not transfer
+            operational ownership.
+          </p>
+        </div>
+      </section>
+
+      <!-- INTEGRATION -->
+
+      <section id="integration">
+        <h2>7. Integration Architecture</h2>
+
+        <p>
+          The integration architecture uses enterprise middleware as the
+          mediation layer between source systems and consumers.
+        </p>
+
+        <div class="model-box">
+          <div class="model">+-------------------+
+|   Source System   |
++-------------------+
+          |
+          | Source-specific data
+          v
++---------------------------+
+| Enterprise Integration    |
+| Middleware                |
+|                           |
+| Routing                   |
+| Transformation            |
+| Validation                |
+| Orchestration             |
+| Delivery                  |
++---------------------------+
+          |
+          | Canonical representation
+          v
++---------------------------+
+| Canonical Education Model |
++---------------------------+
+          |
+          +----------+----------+
+          |          |          |
+          v          v          v
+      Consumer A Consumer B Consumer C</div>
+        </div>
+
+        <h3>Middleware Responsibilities</h3>
+
+        <ul>
+          <li>Message routing.</li>
+          <li>Transformation between source and canonical models.</li>
+          <li>Validation.</li>
+          <li>Schema and contract enforcement.</li>
+          <li>Correlation.</li>
+          <li>Sequencing where required.</li>
+          <li>Retry and delivery handling.</li>
+          <li>Monitoring and operational telemetry.</li>
+          <li>API mediation.</li>
+          <li>Event distribution.</li>
+        </ul>
+
+        <div class="panel red">
+          <div class="panel-title">What Middleware Does Not Own</div>
+          <p>
+            Middleware should not become the business system of record simply
+            because it performs transformation or orchestration.
+          </p>
+        </div>
+      </section>
+
+      <!-- EVENTS -->
+
+      <section id="events">
+        <h2>8. Event Architecture</h2>
+
+        <p>
+          The architecture supports event-driven integration using
+          CloudEvents as a standardized event envelope.
+        </p>
+
+        <div class="two-column">
+          <div class="card">
+            <h3>CloudEvents</h3>
+            <p>
+              Defines the event metadata and envelope, including event identity,
+              source, type, subject and time.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Canonical Model</h3>
+            <p>
+              Defines the business meaning of the education information
+              contained within the event.
+            </p>
+          </div>
+        </div>
+
+        <h3>Conceptual Event</h3>
+
+        <div class="model-box">
+          <div class="model">CloudEvent
+  |
+  +-- id
+  +-- source
+  +-- type
+  +-- subject
+  +-- time
+  +-- data
+        |
+        +-- Canonical Education Payload</div>
+        </div>
+
+        <p>
+          This separation prevents CloudEvents from becoming confused with the
+          business domain model.
+        </p>
+
+        <h3>Example Event Types</h3>
+
+        <ul>
+          <li>StudentCreated</li>
+          <li>StudentUpdated</li>
+          <li>CourseCreated</li>
+          <li>CourseSectionCreated</li>
+          <li>CourseSectionUpdated</li>
+          <li>EnrollmentCreated</li>
+          <li>EnrollmentUpdated</li>
+          <li>ApplicationSubmitted</li>
+          <li>AdmissionCreated</li>
+        </ul>
+      </section>
+
+      <!-- API -->
+
+      <section id="api">
+        <h2>9. API Architecture</h2>
+
+        <p>
+          APIs provide synchronous access where consumers require current
+          information or where an event is not the appropriate interaction
+          pattern.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Pattern</th>
+              <th>Use</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>REST API</td>
+              <td>Request/response access to canonical resources.</td>
+            </tr>
+
+            <tr>
+              <td>Event</td>
+              <td>Notification that something has changed.</td>
+            </tr>
+
+            <tr>
+              <td>Messaging</td>
+              <td>Asynchronous delivery and decoupling.</td>
+            </tr>
+
+            <tr>
+              <td>Batch</td>
+              <td>Large-volume or reconciliation processing.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="panel">
+          <div class="panel-title">Integration Pattern Selection</div>
+          <p>
+            The architecture does not require every integration to use events.
+            API, messaging, event and batch patterns are selected according to
+            business latency, volume, consistency and operational requirements.
+          </p>
+        </div>
+      </section>
+
+      <!-- ONTOLOGY -->
+
+      <section id="ontology">
+        <h2>10. Ontology &amp; Semantics</h2>
+
+        <p>
+          An ontology can provide an additional semantic layer above the
+          canonical model where stronger formal reasoning is required.
+        </p>
+
+        <p>
+          The ontology should not replace the operational canonical model.
+          Instead, it can formally describe concepts, relationships,
+          classifications and constraints that require machine-interpretable
+          semantics.
+        </p>
+
+        <h3>Layered Semantic Architecture</h3>
+
+        <div class="model-box">
+          <div class="model">Operational Systems
+        |
+        v
+Canonical Education Model
+        |
+        v
+Semantic / Ontology Layer
+        |
+        +---- Concept definitions
+        +---- Relationships
+        +---- Classifications
+        +---- Constraints
+        +---- Reasoning
+        |
+        v
+Semantic Consumers</div>
+        </div>
+
+        <h3>Potential Ontology Responsibilities</h3>
+
+        <ul>
+          <li>Formal definition of education concepts.</li>
+          <li>Classification and taxonomy.</li>
+          <li>Semantic relationships between concepts.</li>
+          <li>Equivalence or mapping between external vocabularies.</li>
+          <li>Validation of semantic constraints.</li>
+          <li>Reasoning over relationships where appropriate.</li>
+        </ul>
+
+        <div class="panel warning">
+          <div class="panel-title">Architectural Boundary</div>
+          <p>
+            Ontology reasoning should not become a real-time dependency for
+            ordinary operational transactions unless there is a specific
+            business requirement for it.
+          </p>
+        </div>
+
+        <p>
+          The canonical model remains the practical integration contract,
+          while ontology provides a stronger formal semantic representation
+          where it adds measurable value.
+        </p>
+      </section>
+
+      <!-- GOVERNANCE -->
+
+      <section id="governance">
+        <h2>11. Architecture Governance</h2>
+
+        <p>
+          The canonical model should be governed as an enterprise architecture
+          asset rather than as a private data structure owned by a single
+          application team.
+        </p>
+
+        <h3>Governance Responsibilities</h3>
+
+        <ul>
+          <li>Approve canonical concepts.</li>
+          <li>Define business ownership.</li>
+          <li>Approve semantic changes.</li>
+          <li>Review new source-system mappings.</li>
+          <li>Manage versioning.</li>
+          <li>Review integration contracts.</li>
+          <li>Resolve semantic conflicts between systems.</li>
+          <li>Maintain architectural traceability.</li>
+        </ul>
+
+        <h3>Change Process</h3>
+
+        <ol>
+          <li>Identify business requirement or integration need.</li>
+          <li>Determine whether an existing canonical concept satisfies it.</li>
+          <li>Extend the model only when required.</li>
+          <li>Identify affected source and consuming systems.</li>
+          <li>Update mappings and contracts.</li>
+          <li>Validate backward compatibility.</li>
+          <li>Approve and version the change.</li>
+          <li>Deploy through controlled integration pipelines.</li>
+        </ol>
+      </section>
+
+      <!-- ARTIFACTS -->
+
+      <section id="artifacts">
+        <h2>12. Architecture Artifacts</h2>
+
+        <p>
+          Sparx Enterprise Architect is used as the authoritative architecture
+          modeling repository.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Artifact</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td class="artifact-id">BA-01</td>
+              <td>
+                Business capability model showing the capabilities required
+                to support education integration.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="artifact-id">BA-02</td>
+              <td>
+                Stakeholder model showing organizational responsibilities and
+                influence.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="artifact-id">RT-01</td>
+              <td>
+                Requirements and architecture traceability.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="artifact-id">BL-01</td>
+              <td>
+                Baseline application architecture.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="artifact-id">TA-01</td>
+              <td>
+                Target application architecture.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="artifact-id">DA-01</td>
+              <td>
+                Canonical education data domains and ownership.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="artifact-id">IA-01</td>
+              <td>
+                Integration architecture showing API, messaging and batch
+                integration mechanisms.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="artifact-id">DR-01</td>
+              <td>
+                Detailed integration and schedule-change mechanics.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="artifact-id">ADR-01</td>
+              <td>
+                Formal architecture decision record for data ownership and
+                synchronization.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="artifact-id">RM-01</td>
+              <td>
+                Implementation roadmap and architecture gaps.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- IMPLEMENTATION -->
+
+      <section id="implementation">
+        <h2>13. Implementation Roadmap</h2>
+
+        <p>
+          Implementation proceeds incrementally so that architecture decisions
+          can be validated before broad enterprise adoption.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Phase</th>
+              <th>Focus</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>1. Foundation</td>
+              <td>
+                Establish canonical concepts, ownership, identifiers and
+                governance.
+              </td>
+            </tr>
+
+            <tr>
+              <td>2. Integration Foundation</td>
+              <td>
+                Establish middleware APIs, messaging and transformation
+                capabilities.
+              </td>
+            </tr>
+
+            <tr>
+              <td>3. Pilot</td>
+              <td>
+                Integrate a limited number of high-value education processes.
+              </td>
+            </tr>
+
+            <tr>
+              <td>4. Expansion</td>
+              <td>
+                Add additional systems, domains and event types.
+              </td>
+            </tr>
+
+            <tr>
+              <td>5. Enterprise Adoption</td>
+              <td>
+                Establish the canonical model as a governed enterprise
+                integration asset.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Implementation Principles</h3>
+
+        <ul>
+          <li>Start with high-value integration scenarios.</li>
+          <li>Reuse existing canonical concepts.</li>
+          <li>Avoid creating concepts for individual application fields.</li>
+          <li>Version contracts independently from application releases where possible.</li>
+          <li>Automate mapping and validation.</li>
+          <li>Maintain architecture and implementation traceability.</li>
+        </ul>
+      </section>
+
+      <!-- VALIDATION -->
+
+      <section id="validation">
+        <h2>14. Validation</h2>
+
+        <p>
+          The architecture should be validated against actual university
+          integration scenarios rather than only reviewing the conceptual
+          model.
+        </p>
+
+        <h3>Validation Scenarios</h3>
+
+        <ol>
+          <li>
+            Create a new student and propagate the canonical student
+            representation.
+          </li>
+          <li>
+            Update an employee and validate identifier relationships.
+          </li>
+          <li>
+            Create a course and course section.
+          </li>
+          <li>
+            Assign an instructor to a course section.
+          </li>
+          <li>
+            Register a student in a course section.
+          </li>
+          <li>
+            Submit an application and create an admission relationship.
+          </li>
+          <li>
+            Publish an event using the CloudEvents envelope.
+          </li>
+          <li>
+            Consume the same canonical event in multiple downstream systems.
+          </li>
+        </ol>
+
+        <h3>Validation Criteria</h3>
+
+        <ul>
+          <li>Canonical meaning is unambiguous.</li>
+          <li>Source ownership is preserved.</li>
+          <li>Mappings are deterministic.</li>
+          <li>Events are traceable.</li>
+          <li>Consumers do not require source-specific knowledge.</li>
+          <li>Changes can be versioned without breaking existing consumers.</li>
+          <li>Integration failures can be detected and reconciled.</li>
+        </ul>
+      </section>
+
+      <!-- DECISIONS -->
+
+      <section id="decisions">
+        <h2>15. Architecture Decisions</h2>
+
+        <h3>ADR-01 — Canonical Model and Data Ownership</h3>
+
+        <span class="status">Accepted</span>
+
+        <p>
+          The canonical education model is an enterprise semantic model, not
+          a replacement for source-system ownership.
+        </p>
+
+        <h4>Decision</h4>
+
+        <ul>
+          <li>Source systems remain authoritative for operational data.</li>
+          <li>The canonical model defines shared enterprise meaning.</li>
+          <li>Middleware performs integration mechanics.</li>
+          <li>CloudEvents provides an event envelope where appropriate.</li>
+          <li>Ontology can provide additional formal semantics where justified.</li>
+        </ul>
+
+        <h4>Rationale</h4>
+
+        <p>
+          A canonical model reduces semantic coupling without requiring every
+          application to adopt the same physical database design.
+        </p>
+
+        <p>
+          This architecture also avoids making middleware an accidental system
+          of record.
+        </p>
+
+        <h3>Architecture Trade-off</h3>
+
+        <p>
+          The architecture deliberately separates a practical integration
+          canonical model from a more formal ontology. The canonical model is
+          optimized for application interoperability, while ontology can be
+          introduced where formal semantic reasoning provides additional value.
+        </p>
+
+        <div class="panel">
+          <div class="panel-title">Important Architectural Distinction</div>
+          <p>
+            CloudEvents is an event standard. It is not the education
+            canonical model. The canonical model defines the education
+            information carried by the event.
+          </p>
+        </div>
+      </section>
+
+      <!-- SUCCESS -->
+
+      <section id="success">
+        <h2>16. Success Measures</h2>
+
+        <p>
+          Success should be measured through architectural and operational
+          outcomes rather than simply the number of integrations implemented.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Measure</th>
+              <th>Desired Outcome</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Canonical concept reuse</td>
+              <td>
+                New integrations reuse existing enterprise concepts where appropriate.
+              </td>
+            </tr>
+
+            <tr>
+              <td>Point-to-point integration</td>
+              <td>
+                Reduction in direct source-to-consumer dependencies.
+              </td>
+            </tr>
+
+            <tr>
+              <td>Data ownership</td>
+              <td>
+                Each canonical concept has an identified authoritative owner.
+              </td>
+            </tr>
+
+            <tr>
+              <td>Integration reliability</td>
+              <td>
+                Failures, retries and reconciliation are observable and manageable.
+              </td>
+            </tr>
+
+            <tr>
+              <td>Semantic consistency</td>
+              <td>
+                Systems use consistent definitions for shared education concepts.
+              </td>
+            </tr>
+
+            <tr>
+              <td>Change impact</td>
+              <td>
+                Source-system changes can be absorbed through controlled mappings.
+              </td>
+            </tr>
+
+            <tr>
+              <td>Event interoperability</td>
+              <td>
+                CloudEvents-based integrations can be consumed consistently.
+              </td>
+            </tr>
+
+            <tr>
+              <td>Governance</td>
+              <td>
+                Canonical model changes follow an established architecture process.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="panel success">
+          <div class="panel-title">End State</div>
+
+          <p>
+            The University of Alberta has a governed education canonical model
+            that provides common enterprise semantics while allowing source
+            systems to retain operational ownership and evolve independently.
+          </p>
+
+          <p>
+            Enterprise middleware provides the integration mechanism, APIs
+            provide synchronous access, CloudEvents supports event-driven
+            propagation, and ontology provides an optional formal semantic
+            layer where it delivers additional value.
+          </p>
+        </div>
+      </section>
+
+      <div class="footer">
+        University of Alberta Education Architecture · Enterprise Architecture Case Study
+      </div>
+
+    </main>
+  </div>
+
 </body>
 </html>
