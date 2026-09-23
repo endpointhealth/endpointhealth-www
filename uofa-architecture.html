@@ -423,7 +423,8 @@
     <a href="#artifacts">13. Architecture Artifacts</a>
     <a href="#adr">14. Architecture Decision Record</a>
     <a href="#success">15. Success Measures</a>
-      <a href="#final">16. Final Thoughts</a>
+    <a href="#approach">16. Architectural Approach &amp; Implementation Plan</a>
+    <a href="#final">17. Final Thoughts</a>
   </nav>
 
   <main class="content">
@@ -605,9 +606,11 @@
       </p>
 
       <p>
-        Your assignment: Present a structured, end-to-end architectural approach and execution plan that addresses the challenges described above. Your response must include a concrete sequential approach for baseline assessment, target design, validation, stakeholder collaboration, artifact production, and an ADR that codifies lifecycle-aware data ownership and bidirectional synchronization logic between Infosilem and Peoplesoft.
+         Assignment: Present a structured, end-to-end architectural approach and execution plan that addresses the challenges described above. Your response must include a concrete sequential approach for baseline assessment, target design, validation, stakeholder collaboration, artifact production, and an ADR that codifies lifecycle-aware data ownership and bidirectional synchronization logic between Infosilem and Peoplesoft.
       </p>
     </section>
+    
+    
 
     <section id="vision">
       <h2>1. Architecture Vision &amp; Scope</h2>
@@ -2454,11 +2457,82 @@ Published Schedule
           and the institution can operate comprehensive optimization together
           with timely downstream schedule propagation.
         </p>
-    
+
+    <section id="approach">
+      <h2>16. Architectural Approach &amp; Implementation Plan</h2>
+      <div class="adm-label">Structured plan mapped to assignment deliverables</div>
+
+      <h3>A. Sequential Architecture Approach</h3>
+      <ol>
+        <li>Inventory and confirm the baseline (applications, interfaces, data domains) and publish BL-01.</li>
+        <li>Identify stakeholders and responsibilities; produce BA-01 / BA-02 artifacts and confirm decision owners.</li>
+        <li>Produce DA-01 (data domains and ownership) and an ownership table mapping each domain to a system owner.</li>
+        <li>Define the Schedule Lifecycle model (SL-01) capturing planned → optimized → published → operational → changed states.</li>
+        <li>Write Architecture Decision Records (ADR-01 and follow-ons) codifying ownership, lifecycle authority and high-level synchronization rules.</li>
+        <li>Define detailed integration mechanics (DR-01) for delta detection, correlation, validation and conflict resolution.</li>
+        <li>Design IA-01: the integration architecture (APIs, messaging, eventing, batch) with concrete interfaces and contracts.</li>
+        <li>Implement MuleSoft adapters, transformations and replay/compensation mechanics in a development environment.</li>
+        <li>Execute a controlled pilot (RM-01) with Colleges selected for validation, using production-like data and the DR-01 mechanics.</li>
+        <li>Validate end-to-end behavior, update SL-01/DA-01/DR-01 as needed, and record ADR amendments.</li>
+        <li>Plan and execute phased deployment with cutover, reconciliation, monitoring and rollback capabilities.</li>
+        <li>Operate, govern and iterate: keep artifacts current and continuously manage requirements and ADRs.</li>
+      </ol>
+
+      <h3>B. Data Architecture &amp; Ownership</h3>
+      <p>
+        Produce DA-01 and an ownership table that maps each scheduling data domain (course, section, instructor, room, meeting pattern, assignment, published schedule) to an authoritative system and to lifecycle ownership during planning, publication and operational states.
+      </p>
+
+      <h3>C. Integration Mechanisms</h3>
+      <p>Use a combination of integration mechanisms described in IA-01:</p>
+      <ul>
+        <li><strong>APIs</strong> — synchronous retrieval and controlled updates.</li>
+        <li><strong>Messaging</strong> — reliable asynchronous propagation of deltas.</li>
+        <li><strong>Event streaming</strong> — near-real-time notifications for downstream consumers.</li>
+        <li><strong>Batch ETL</strong> — comprehensive optimization exchanges and solver inputs/outputs.</li>
+      </ul>
+
+      <h3>D. Data Ownership &rarr; Update Strategy</h3>
+      <p>
+        Ownership and lifecycle authority determine synchronization strategy: the authoritative owner for a domain and the current lifecycle state (SL-01) together decide whether an incoming change is accepted, rejected, validated or triggers re-optimization. In short: ownership and lifecycle dictate synchronization and update behavior rather than a blanket system-precedence rule.
+      </p>
+
+      <h3>E. Critical Edge Cases</h3>
+
+      <h4>Schedule delta management</h4>
+      <p>We establish the explicit flow:</p>
+      <p><em>Source change → MuleSoft detects delta → validates/routes/transports → appropriate business process → authoritative result → propagation</em></p>
+      <p><strong>MuleSoft does not decide which business result is correct.</strong> Material changes can trigger validation or re-optimization as prescribed by SL-01 and ADR-01.</p>
+
+      <h4>Conflict resolution during live registration</h4>
+      <p>There is no blanket "PeopleSoft always wins" rule. Instead the authority depends on the data and lifecycle state. Examples:</p>
+      <ul>
+        <li>Student registration → PeopleSoft authority</li>
+        <li>Core course data → PeopleSoft authority</li>
+        <li>Curriculum requirements → CurricUNET authority</li>
+        <li>Planning room assignment → Infosilem authority during planning</li>
+        <li>Optimized schedule → Infosilem during planning</li>
+        <li>Published schedule → operational lifecycle authority</li>
+      </ul>
+      <p>If PeopleSoft and Infosilem disagree, the response depends on what data is conflicting and where the schedule is in its lifecycle — this is the central argument codified in ADR-01.</p>
+
+      <h4>Multi-campus travel constraints</h4>
+      <p>These belong primarily to the scheduling/optimization domain (Infosilem). Key modeling concerns include:</p>
+      <ul>
+        <li>Faculty availability</li>
+        <li>Daily teaching spread</li>
+        <li>Consecutive teaching blocks</li>
+        <li>Campus-to-campus travel time</li>
+        <li>Collective-bargaining constraints</li>
+      </ul>
+      <p>These constraints should be modeled in Infosilem and informed by authoritative faculty/workload data from PeopleSoft (and local HR/union rules), not solved in the middleware layer.</p>
+
+    </section>
+
       <!-- FINAL THOUGHTS -->
 
       <section id="final">
-        <h2>16. Final Thoughts</h2>
+        <h2>17. Final Thoughts</h2>
         <div class="adm-label">Concluding observations and scope notes</div>
 
         <ol>
