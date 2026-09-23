@@ -423,6 +423,7 @@
     <a href="#artifacts">13. Architecture Artifacts</a>
     <a href="#adr">14. Architecture Decision Record</a>
     <a href="#success">15. Success Measures</a>
+      <a href="#final">16. Final Thoughts</a>
   </nav>
 
   <main class="content">
@@ -488,6 +489,8 @@
         organizing principles.
       </p>
     </section>
+
+    
 
     <!-- VISION -->
 
@@ -2451,15 +2454,29 @@ Published Schedule
           and the institution can operate comprehensive optimization together
           with timely downstream schedule propagation.
         </p>
-      </div>
-    </section>
+    
+      <!-- FINAL THOUGHTS -->
 
-    <div class="footer">
-      ASSO Architecture Approach &amp; Execution · Metropolitan State University
-    </div>
+      <section id="final">
+        <h2>16. Final Thoughts</h2>
+        <div class="adm-label">Concluding observations and scope notes</div>
 
-  </main>
-</div>
+        <ol>
+          <li>
+            The architecture core of the case study is essentially that of data ownership: <strong>Data ownership → lifecycle authority → synchronization/update strategy → conflict resolution.</strong>
+          </li>
 
-</body>
-</html>
+          <li>
+            Lifecycle authority should be relegated to a system outside the middleware (avoid putting business logic within the middleware!) but is excluded from the discussion as it's believed to be beyond the scope of the response (but it was noticed).
+          </li>
+
+          <li>
+            Other UML views such as deployment view etc, is withheld due to perceived scope of the study.
+          </li>
+
+          <li>
+            I forgot to mention I'm certified in Mulesoft Anypoint ops-stuff. 
+          </li>
+          
+        </ol>
+      </section>
