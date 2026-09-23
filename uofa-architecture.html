@@ -330,6 +330,14 @@
       padding: 20px;
     }
 
+    .adm-label {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 6px;
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+
     @media (max-width: 900px) {
       .container {
         grid-template-columns: 1fr;
@@ -442,6 +450,7 @@
 
     <section id="overview">
       <h2>Overview</h2>
+      <div class="adm-label">TOGAF ADM: Preliminary</div>
 
       <p>
         Metropolitan State University (MSU) is implementing Infosilem Academic
@@ -484,6 +493,7 @@
 
     <section id="vision">
       <h2>1. Architecture Vision &amp; Scope</h2>
+      <div class="adm-label">TOGAF ADM: Phase A — Architecture Vision</div>
 
       <h3>Business Context</h3>
 
@@ -554,6 +564,7 @@
 
     <section id="baseline">
       <h2>2. Baseline Architecture Assessment</h2>
+      <div class="adm-label">TOGAF ADM: Phase B — Business Architecture (Baseline Assessment)</div>
 
       <p>
         The first architectural activity is to establish a fact-based baseline
@@ -626,6 +637,7 @@
 
     <section id="requirements">
       <h2>3. Requirements &amp; Stakeholder Analysis</h2>
+      <div class="adm-label">TOGAF ADM: Requirements Management / Phase A</div>
 
       <h3>Institutional Requirements</h3>
 
@@ -634,6 +646,7 @@
           <tr>
             <th>ID</th>
             <th>Requirement</th>
+            <th>Type</th>
             <th>Architectural Response</th>
           </tr>
         </thead>
@@ -642,60 +655,70 @@
           <tr>
             <td class="artifact-id">REQ-01</td>
             <td>Centralized Room Governance</td>
+            <td>Non-functional</td>
             <td>University instructional spaces managed centrally through Infosilem.</td>
           </tr>
 
           <tr>
             <td class="artifact-id">REQ-02</td>
             <td>Prime-Time Scheduling Distribution</td>
+            <td>Non-functional</td>
             <td>Enforce the 45% prime-time contact-hour cap.</td>
           </tr>
 
           <tr>
             <td class="artifact-id">REQ-03</td>
             <td>Standard Meeting Patterns</td>
+            <td>Functional</td>
             <td>Support 50-minute MWF and 75-minute TR patterns.</td>
           </tr>
 
           <tr>
             <td class="artifact-id">REQ-04</td>
             <td>Data Ownership &amp; Mastery</td>
+            <td>Non-functional</td>
             <td>Explicit source-of-truth boundaries and lifecycle rules.</td>
           </tr>
 
           <tr>
             <td class="artifact-id">REQ-05</td>
             <td>Bidirectional Schedule Synchronization</td>
+            <td>Functional</td>
             <td>Support controlled exchange between PeopleSoft and Infosilem.</td>
           </tr>
 
           <tr>
             <td class="artifact-id">REQ-06</td>
             <td>Specialized &amp; Shared Space Constraints</td>
+            <td>Functional</td>
             <td>Represent equipment, certification, turnover and shared-space requirements.</td>
           </tr>
 
           <tr>
             <td class="artifact-id">REQ-07</td>
             <td>Faculty Availability &amp; Workload Constraints</td>
+            <td>Functional</td>
             <td>Account for daily spread, workload and multi-campus travel.</td>
           </tr>
 
           <tr>
             <td class="artifact-id">REQ-08</td>
             <td>Downstream Near-Real-Time Integration</td>
+            <td>Non-functional</td>
             <td>Propagate schedule changes to operational consumers promptly.</td>
           </tr>
 
           <tr>
             <td class="artifact-id">REQ-09</td>
             <td>Security, Identity &amp; Access Control</td>
+            <td>Non-functional</td>
             <td>Use enterprise identity, authorization and secure integration.</td>
           </tr>
 
           <tr>
             <td class="artifact-id">REQ-10</td>
             <td>Optimization &amp; Schedule Quality</td>
+            <td>Functional</td>
             <td>Use Infosilem optimization to improve schedule quality and space utilization.</td>
           </tr>
         </tbody>
@@ -885,6 +908,7 @@
 
     <section id="target">
       <h2>4. Target Architecture</h2>
+      <div class="adm-label">TOGAF ADM: Phases B/C/D — Target Architecture (Business / Data / Technology)</div>
 
       <p>
         The target architecture separates business ownership from integration
@@ -893,31 +917,11 @@
       </p>
 
       <div class="model-box">
-        <div class="model">CurricUNET
-     |
-     | Curriculum / requirements
-     v
-+------------------+
-|     MuleSoft     |
-| API / Messaging  |
-| Orchestration    |
-+------------------+
-     |          |
-     |          |
-     v          v
-PeopleSoft    Infosilem
-     ^          |
-     |          |
-     +----------+
-       Schedule
-       synchronization
-
-MuleSoft
-  |
-  +----> 25Live
-  +----> Canvas
-  +----> LenelS2
-  +----> Metasys</div>
+        <div class="diagram-figure" style="margin-top:0.5rem">
+          <a href="images/uofa/ta-01-full.png" class="diagram-link">
+            <img src="images/uofa/ta-01-full.png" alt="TA-01 Target Enterprise Application Architecture preview" style="max-width:100%;border:1px solid #ddd;display:block">
+          </a>
+        </div>
       </div>
 
       <h3>Target-State Responsibilities</h3>
@@ -1004,8 +1008,8 @@ MuleSoft
           high-level integration direction.
         </p>
         <div class="diagram-figure" style="margin-top:0.5rem">
-          <a href="images/uofa/rt-01-full.png" class="diagram-link">
-            <img src="images/uofa/rt-01-full.png" alt="TA-01 Target Enterprise Application Architecture preview" style="max-width:260px;border:1px solid #ddd;display:block">
+          <a href="images/uofa/ta-01-full.png" class="diagram-link">
+            <img src="images/uofa/ta-01-full.png" alt="TA-01 Target Enterprise Application Architecture preview" style="max-width:260px;border:1px solid #ddd;display:block">
           </a>
         </div>
       </div>
@@ -1015,6 +1019,7 @@ MuleSoft
 
     <section id="data">
       <h2>5. Data Architecture &amp; Ownership</h2>
+      <div class="adm-label">TOGAF ADM: Phase C — Information Systems Architecture (Data)</div>
 
       <p>
         Data ownership is established before detailed synchronization behavior.
@@ -1133,6 +1138,7 @@ MuleSoft
 
     <section id="integration">
       <h2>6. Integration &amp; Synchronization Strategy</h2>
+      <div class="adm-label">TOGAF ADM: Phase C/D — Application &amp; Technology Architecture</div>
 
       <p>
         The architecture deliberately uses multiple integration mechanisms.
@@ -1240,6 +1246,7 @@ MuleSoft
 
     <section id="edge">
       <h2>7. Schedule Changes &amp; Edge Cases</h2>
+      <div class="adm-label">TOGAF ADM: Phase H — Architecture Change Management</div>
 
       <h3>7.1 Schedule Delta Management</h3>
 
@@ -1402,6 +1409,7 @@ Published Schedule
 
     <section id="collaboration">
       <h2>8. Stakeholder Collaboration &amp; Governance</h2>
+      <div class="adm-label">TOGAF ADM: Preliminary / Architecture Governance</div>
 
       <p>
         The architecture must be constructed collaboratively because the
@@ -1530,6 +1538,7 @@ Published Schedule
 
     <section id="gaps">
       <h2>9. Gap Analysis &amp; Implementation Strategy</h2>
+      <div class="adm-label">TOGAF ADM: Phase E/F — Opportunities &amp; Solutions / Migration Planning</div>
 
       <p>
         The gap analysis converts the difference between baseline and target
@@ -1604,6 +1613,7 @@ Published Schedule
 
     <section id="implementation">
       <h2>10. Implementation &amp; Migration</h2>
+      <div class="adm-label">TOGAF ADM: Phase F/G — Migration Planning &amp; Implementation Governance</div>
 
       <h3>Plateau 1 — Baseline</h3>
 
@@ -1662,6 +1672,7 @@ Published Schedule
 
     <section id="validation">
       <h2>11. Validation &amp; Pilot</h2>
+      <div class="adm-label">TOGAF ADM: Phase G — Implementation Governance / Validation</div>
 
       <p>
         Validation must demonstrate that the target architecture works against
@@ -1743,6 +1754,7 @@ Published Schedule
 
     <section id="production">
       <h2>12. Production Readiness</h2>
+      <div class="adm-label">TOGAF ADM: Phase G/H — Implementation &amp; Change Management / Readiness</div>
 
       <p>
         Production readiness is treated as an architecture concern rather than
@@ -1792,6 +1804,7 @@ Published Schedule
 
     <section id="artifacts">
       <h2>13. Architecture Artifacts</h2>
+      <div class="adm-label">TOGAF ADM: Artifacts &amp; Deliverables (All Phases)</div>
 
       <p>
         Sparx Enterprise Architect is the authoritative architecture modeling
@@ -1931,6 +1944,7 @@ Published Schedule
 
     <section id="adr">
       <h2>14. Architecture Decision Record</h2>
+      <div class="adm-label">TOGAF ADM: Architecture Governance / ADRs (Governance Artifact)</div>
 
       <h3>ADR-01 — Academic Schedule Data Ownership &amp; Bidirectional Synchronization</h3>
 
@@ -2191,6 +2205,7 @@ Published Schedule
 
     <section id="success">
       <h2>15. Success Measures</h2>
+      <div class="adm-label">TOGAF ADM: Benefits Realization &amp; Governance</div>
 
       <p>
         The architecture is successful when the institution can operate the
