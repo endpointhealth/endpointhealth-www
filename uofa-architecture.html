@@ -491,6 +491,121 @@
 
     <!-- VISION -->
 
+    <!-- CASE STUDY -->
+
+    <section id="case-study">
+      <h2>Case Study: Enterprise Implementation &amp; Integration of Infosilem Academic</h2>
+      <div class="adm-label">Role Evaluated: Solution Architect — Domain: Higher Education Enterprise Architecture, Academic Operations &amp; Scheduling Optimization</div>
+
+      <h3>1. Institutional Context &amp; Business Need</h3>
+
+      <p>
+        Metropolitan State University (MSU) is a comprehensive public research
+        university serving approximately 34,000 undergraduate and graduate
+        students across 14 degree-granting colleges. The institution operates
+        across three main physical footprints:
+      </p>
+
+      <ul>
+        <li>
+          <strong>Central Campus:</strong> Houses liberal arts, sciences, business,
+          and engineering, comprising 190 general-purpose classrooms and 85
+          specialized instructional laboratories.
+        </li>
+
+        <li>
+          <strong>Health Sciences Campus:</strong> Dedicated to medicine, nursing,
+          and allied health professions, characterized by rigid cohort-based
+          curricula and accredited clinical lab requirements.
+        </li>
+
+        <li>
+          <strong>Downtown Center:</strong> Focuses on continuing studies,
+          executive master's programs, and community-partner shared facilities.
+        </li>
+      </ul>
+
+      <p>Each term, MSU schedules approximately 4,900 course sections.</p>
+
+      <h4>Historical Deficits</h4>
+
+      <p>Historically, course scheduling operated under a decentralized, manual model:</p>
+
+      <ul>
+        <li><strong>Fragmented Ownership:</strong> Academic departments maintained de facto ownership over specific classrooms and generated schedules independently using localized spreadsheets.</li>
+        <li><strong>Severe Peak-Load Imbalances:</strong> More than 80% of classroom capacity was requested between 10:00 AM and 2:00 PM on Tuesdays and Thursdays, while early morning, evening, and Friday utilization languished below 22%. Overall institutional classroom utilization stood at 46%.</li>
+        <li><strong>Degree Pathway Conflicts:</strong> Uncoordinated departmental timetables caused cross-departmental bottlenecks for required core and elective courses, directly hindering on-time graduation metrics.</li>
+        <li><strong>Operational Disconnects:</strong> Ad-hoc room booking and manual adjustments routinely conflicted with campus event services, custodial work orders, and HVAC energy conservation cycles.</li>
+      </ul>
+
+      <p>
+        To modernize operations, the Provost and the Vice President for
+        Information Technology sponsored the Academic Scheduling &amp; Space
+        Optimization (ASSO) initiative, selecting the Infosilem Academic Suite
+        (Infosilem Timetabler, Infosilem Campus, and Infosilem Portal) to
+        establish an algorithmic, constraint-driven scheduling ecosystem. The
+        project explicitly recognizes the <strong>optimized synergistic paradox</strong>
+        as a core architectural tension that must be managed.
+      </p>
+
+      <h3>2. Completed Milestones &amp; Baseline Decisions</h3>
+
+      <p>Over the past nine months, the project team achieved the following governance and technical milestones:</p>
+
+      <h4>Governance &amp; Policy Ratifications</h4>
+      <ol>
+        <li><strong>Centralized Room Governance:</strong> The Faculty Senate and Council of Deans enacted an institutional policy establishing that all general-purpose instructional spaces are university assets managed centrally through the Infosilem engine.</li>
+        <li><strong>Prime-Time Distribution Caps:</strong> Academic departments are restricted from scheduling more than 45% of their total weekly contact hours during prime-time windows (Monday–Thursday, 9:30 AM – 2:30 PM).</li>
+        <li><strong>Standard Meeting Patterns:</strong> Standard 50-minute (MWF) and 75-minute (TR) meeting patterns were formally mandated, eliminating irregular ad-hoc time blocks.</li>
+      </ol>
+
+      <h4>Infrastructure &amp; Technical Foundation</h4>
+      <ol>
+        <li><strong>Hosting &amp; Identity:</strong> The Infosilem suite has been provisioned in a dedicated VPC connected via encrypted site-to-site VPN to on-premises systems. SSO is implemented using Microsoft Entra ID via SAML 2.0 / OIDC with role-based access control (RBAC) tiers established for Registrar administrators, college schedulers, and facility coordinators.</li>
+        <li><strong>Data Cleansing:</strong> Enterprise IT completed an initial data hygiene initiative within the Student Information System (SIS), normalizing room feature tags, verifying seat capacities, and resolving orphaned instructor IDs across historical records.</li>
+        <li><strong>Pilot Validation:</strong> A retrospective dry-run using historical data from the College of Engineering and College of Arts and Sciences proved that the algorithmic solver could resolve 95% of historical student schedule conflicts while reducing required room hours by 16%. This pilot also surfaced the <strong>optimized synergistic paradox</strong> in practical terms.</li>
+      </ol>
+
+      <h3>3. Current Enterprise Systems Landscape</h3>
+
+      <p>The solution architect must integrate Infosilem across a heterogeneous enterprise ecosystem:</p>
+
+      <ul>
+        <li><strong>Core SIS:</strong> Peoplesoft Campus Solutions (Oracle) — master system of record for course catalog, active term sections, instructor workload, and student registrations.</li>
+        <li><strong>Curriculum Management:</strong> CurricUNET / Watermark — definitive program requirements and contact-hour structures.</li>
+        <li><strong>Integration Platform:</strong> MuleSoft Anypoint — API management, message queuing, and orchestration.</li>
+        <li><strong>Event &amp; Auxiliary Scheduling:</strong> CollegeNET 25Live — non-academic room reservations and events.</li>
+        <li><strong>Downstream Consumers:</strong>
+          <ul>
+            <li>Learning Management System (Canvas) — timely section shells and roster feeds.</li>
+            <li>Campus Access Control (LenelS2) — automated room unlock schedules based on live course times.</li>
+            <li>Building Automation &amp; HVAC (Johnson Controls Metasys) — scheduled occupancy data drives dynamic energy setbacks.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <p>The architecture must explicitly reconcile near-real-time downstream latency with Infosilem's batch optimization windows — another manifestation of the <strong>optimized synergistic paradox</strong>.</p>
+
+      <h3>4. Current Challenges &amp; Architectural Ambiguities</h3>
+
+      <ol>
+        <li><strong>System of Record &amp; Bidirectional Sync Cadence:</strong> There is no consensus on data mastery during active scheduling windows. The end-to-end mechanism for delta detection, bidirectional reconciliation, and freeze/publish schedules remains undefined.</li>
+        <li><strong>Specialized &amp; Shared Space Constraints:</strong> Units such as wet labs, performing arts spaces and clinical simulation suites require custom turnover buffers, prep equipment, and safety certifications that standard timetabling rules do not capture.</li>
+        <li><strong>Faculty Availability &amp; Workload Rules:</strong> Collective bargaining agreements impose constraints (daily spread, multi-campus travel) that must be modeled without creating infeasible solver conditions.</li>
+        <li><strong>Real-Time Latency vs. Optimization Batch Windows:</strong> Downstream systems require near-real-time updates while Infosilem performs best with large-scale batch optimizations.</li>
+      </ol>
+
+      <h3>5. Candidate Assessment Prompt</h3>
+
+      <p>
+        Scenario: You have been hired as the Solution Architect for the ASSO initiative. Executive leadership has committed procurement, formed governance, completed initial data hygiene, and ratified prime-time policy. Detailed technical architecture designs, end-to-end integration specifications, data ownership boundaries, and operational execution frameworks remain unfinalized. You are tasked with leading solution architecture through to production go-live.
+      </p>
+
+      <p>
+        Your assignment: Present a structured, end-to-end architectural approach and execution plan that addresses the challenges described above. Your response must include a concrete sequential approach for baseline assessment, target design, validation, stakeholder collaboration, artifact production, and an ADR that codifies lifecycle-aware data ownership and bidirectional synchronization logic between Infosilem and Peoplesoft.
+      </p>
+    </section>
+
     <section id="vision">
       <h2>1. Architecture Vision &amp; Scope</h2>
       <div class="adm-label">TOGAF ADM: Phase A — Architecture Vision</div>
