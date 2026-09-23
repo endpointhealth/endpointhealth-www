@@ -1339,20 +1339,103 @@
         <div class="panel-title">The Optimized Synergistic Paradox</div>
 
         <p>
-          The architecture must reconcile two apparently competing needs:
-          Infosilem requires a broad, comprehensive view of scheduling
-          constraints to optimize the institutional schedule, while downstream
-          systems require timely incremental updates.
+          We solve the <strong>optimized synergistic paradox</strong> by separating the
+          <strong>optimization lifecycle</strong> from the
+          <strong>operational synchronization lifecycle</strong>.
         </p>
 
         <p>
-          This is the <strong>optimized synergistic paradox</strong>: the
-          solution requires both comprehensive batch optimization and
-          near-real-time incremental integration.
+          The core is:<br>
+          <strong>Comprehensive data for optimization → Infosilem optimizes → incremental governed updates → operational systems stay current</strong>
+        </p>
+
+        <h4>In practice</h4>
+
+        <ol>
+          <li>
+            <strong>Build a comprehensive planning dataset</strong>
+            <ul>
+              <li>PeopleSoft supplies course, section, instructor, registration and related academic data.</li>
+              <li>CurricUNET supplies curriculum/program requirements.</li>
+              <li>Room information and constraints are supplied to the planning process.</li>
+              <li>Infosilem gets the broad constraint set it needs to optimize the schedule.</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>Infosilem performs the optimization</strong>
+            <ul>
+              <li>It considers room capacity/features, meeting patterns, prime-time limits, faculty availability, daily spread, campus travel, specialized-space constraints, etc.</li>
+              <li>The resulting <strong>planning schedule and optimization outputs are authoritative within the scheduling-planning lifecycle</strong>.</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>MuleSoft distributes the resulting changes</strong>
+            <ul>
+              <li>MuleSoft doesn't become another system of record.</li>
+              <li>It detects deltas, transforms them, routes them and delivers them through the appropriate mechanism.</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>Use different integration mechanisms for different needs</strong>
+            <ul>
+              <li><strong>Query/update</strong> with immediate response — <strong>API</strong></li>
+              <li><strong>Reliable asynchronous schedule change</strong> — <strong>Message queue</strong></li>
+              <li><strong>Near-real-time downstream notification</strong> — <strong>Event streaming</strong></li>
+              <li><strong>Large comprehensive optimization/reconciliation cycle</strong> — <strong>Batch ETL</strong></li>
+            </ul>
+          </li>
+        </ol>
+
+        <p>
+          <strong>Don't force everything into real-time.</strong> That's the important part.
+          Infosilem's optimization requires a <strong>broad, relatively complete view</strong>
+          of constraints and relationships. Trying to optimize every individual change
+          immediately as it happens would undermine the optimization process.
+        </p>
+
+        <p>
+          Conversely, making Canvas, LenelS2, or Metasys wait for the next comprehensive
+          optimization cycle would make the operational environment unnecessarily stale.
+        </p>
+
+        <p>
+          So we deliberately have <strong>two tempos</strong>:
+        </p>
+
+        <blockquote>
+          <strong>Optimization tempo:</strong> comprehensive/batch<br>
+          <strong>Operational tempo:</strong> incremental/event-driven
+        </blockquote>
+
+        <p>
+          And <strong>data ownership determines what happens when those tempos collide</strong>.
+        </p>
+
+        <p>
+          For example, if PeopleSoft changes an instructor during an active scheduling window:
+        </p>
+
+        <p>
+          <strong>PeopleSoft change → MuleSoft detects delta → determine lifecycle/ownership → Infosilem revalidation or re-optimization if required → approved schedule change → MuleSoft publishes downstream</strong>
+        </p>
+
+        <p>
+          MuleSoft doesn't decide which system is "right." The <strong>ownership and lifecycle
+          rules in ADR-01</strong> determine that.
+        </p>
+
+        <p>
+          That's why the phrase <strong>optimized synergistic paradox</strong> works for this
+          case: the architecture doesn't try to eliminate the tension between comprehensive
+          optimization and near-real-time operations. <strong>It uses both deliberately, with
+          ownership and lifecycle rules governing the boundary between them.</strong>
         </p>
       </div>
 
-        <div class="panel">
+      <div class="panel">
         <div class="panel-title">Integration Artifact</div>
 
         <p>
@@ -1361,8 +1444,8 @@
           optimization interface.
         </p>
         <div class="diagram-figure" style="margin-top:0.5rem">
-          <a href="images/uofa/rt-01-full.png" class="diagram-link">
-            <img src="images/uofa/rt-01-full.png" alt="IA-01 Target Integration Architecture preview" style="max-width:260px;border:1px solid #ddd;display:block">
+          <a href="images/uofa/ia-01-full.png" class="diagram-link">
+            <img src="images/uofa/ia-01-full.png" alt="IA-01 Target Integration Architecture preview" style="max-width:260px;border:1px solid #ddd;display:block">
           </a>
         </div>
       </div>
