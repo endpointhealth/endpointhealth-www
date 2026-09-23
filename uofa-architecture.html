@@ -1887,6 +1887,16 @@ Published Schedule
 
           <tr>
             <td class="artifact-id">
+              <a href="images/uofa/sa-01-full.png" class="diagram-link"><img src="images/uofa/sa-01-full.png" alt="SA-01 preview" style="width:96px;max-height:60px;border:1px solid #ddd;display:inline-block;vertical-align:middle;margin-right:8px"></a>
+              SA-01
+            </td>
+            <td>Architecture and modeling team, enterprise architecture</td>
+            <td>System Architecture model capturing component-level design and deployment.</td>
+            <td>Provides an authoritative modeled artifact for implementation and operations.</td>
+          </tr>
+
+          <tr>
+            <td class="artifact-id">
               <a href="images/uofa/ia-01-full.png" class="diagram-link"><img src="images/uofa/ia-01-full.png" alt="IA-01 preview" style="width:96px;max-height:60px;border:1px solid #ddd;display:inline-block;vertical-align:middle;margin-right:8px"></a>
               IA-01
             </td>
@@ -1917,6 +1927,16 @@ Published Schedule
 
           <tr>
             <td class="artifact-id">
+              <a href="images/uofa/sl-01-full.png" class="diagram-link"><img src="images/uofa/sl-01-full.png" alt="SL-01 preview" style="width:96px;max-height:60px;border:1px solid #ddd;display:inline-block;vertical-align:middle;margin-right:8px"></a>
+              SL-01
+            </td>
+            <td>Architecture authors, ADR authors, enterprise architecture</td>
+            <td>Schedule Lifecycle model describing planned → optimized → published → operational → changed and associated ownership rules.</td>
+            <td>Clarifies lifecycle-driven ownership used by ADRs and conflict resolution.</td>
+          </tr>
+
+          <tr>
+            <td class="artifact-id">
               <a href="images/uofa/rm-01-full.png" class="diagram-link"><img src="images/uofa/rm-01-full.png" alt="RM-01 preview" style="width:96px;max-height:60px;border:1px solid #ddd;display:inline-block;vertical-align:middle;margin-right:8px"></a>
               RM-01
             </td>
@@ -1937,6 +1957,32 @@ Published Schedule
           decisions are reflected in the appropriate model or ADR and traced
           through the delivery lifecycle.
         </p>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">Schedule Lifecycle Artifact (SL-01)</div>
+
+        <p>
+          <span class="artifact-id">SL-01 — Schedule Lifecycle Model</span>
+          <strong> (Architecture artifact to be produced)</strong>
+        </p>
+
+        <p>
+          This artifact documents the schedule lifecycle states and transitions
+          (planned → optimized → published → operational → changed) and the
+          authoritative ownership rules that depend on lifecycle state. It is
+          specifically intended to complement <span class="artifact-id">ADR-01</span>
+          by making lifecycle-driven ownership explicit rather than assuming a
+          single system always wins. Model production is planned and this
+          artifact should be produced in the architecture repository (Sparx)
+          during the next modeling cycle.
+        </p>
+
+        <div class="diagram-figure" style="margin-top:0.5rem">
+          <a href="images/uofa/sl-01-full.png" class="diagram-link">
+            <img src="images/uofa/sl-01-full.png" alt="SL-01 Schedule Lifecycle Model preview (to be produced)" style="max-width:260px;border:1px solid #ddd;display:block;opacity:0.9">
+          </a>
+        </div>
       </div>
     </section>
 
