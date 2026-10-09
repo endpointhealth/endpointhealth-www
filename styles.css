@@ -77,6 +77,14 @@ img, picture, video, svg {
 
 }
 
+.product-version {
+  display: inline-block;
+  margin-left: 0.35em;
+  font-size: 0.55em;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
 .iris-header {
   display: flex;
   align-items: center;
@@ -169,6 +177,25 @@ footer {
      text-align: left;
 }
 
+.smart-emr-feature {
+  width: min(1100px, calc(100vw - 40px));
+  max-width: none;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: start;
+}
+
+.smart-emr-feature .feature-text {
+  min-width: 0;
+  max-width: none;
+}
+
+.smart-emr-feature > img {
+  width: 100%;
+  max-width: none;
+  height: auto;
+}
+
 .feature-block img {
   width: 100%;
   max-width: 450px;
@@ -188,6 +215,15 @@ footer {
   .feature-block {
     flex-direction: column !important;
     text-align: center;
+  }
+
+  .smart-emr-feature {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .smart-emr-feature > img {
+    height: auto;
   }
 
   .feature-block img {
